@@ -1,0 +1,110 @@
+.primarywrapper{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.desktopnav{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+}
+.third{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    justify-content: center;  
+}
+.third a:hover{
+    text-decoration: underline;
+}
+.third p{
+    padding: 15px;
+}
+.image{
+    width: 100px;
+    height: 100px;
+    margin-right: 25%;
+    transition: all 0.3s ease-out;
+    filter: var(--filter);
+
+}
+.image:hover{
+    transform: scale(1.02);
+}
+#mobileButton{
+    display: none;
+}
+#close .mobilenav{
+    display: none;
+}
+#open .mobilenav{
+    width: 70vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: slide-in 0.5s forwards, fade-in 0.5s forwards;
+}
+.socials{
+    display: flex;
+    width: 80%;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30%;
+}
+.socials svg{
+    font-size: 40px;
+    padding: 15px;
+}
+#contactButton button{
+    margin: 0px 10px;
+}
+@media only screen and (max-width: 800px){
+    #navlinks{
+        display: none;
+    }
+    #contactButton{
+        display: none;
+    }
+    #mobileButton{
+        display: flex;
+    }
+    #mobileButton button{
+        margin-left: 30%;
+        border: none;
+    }
+    #mobileButton button:hover{
+        background: none;
+        color: white;
+    }
+    #mobileButton svg{
+        font-size: 40px;
+    }
+    .mobilenav p{
+        font-size:25px;
+    }
+}
+@keyframes slide-in{
+    0%{
+        transform: translateX(-80vw);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+  }
+  @keyframes fade-in{
+    100%{
+        opacity: 1;
+    }
+  }
