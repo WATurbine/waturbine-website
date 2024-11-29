@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Head from "next/head";
 import sustainIcon from '../assets/sustainicon.png'
 import engIcon from '../assets/engicon.png'
 import inspire from '../assets/inspire.png'
@@ -8,6 +9,12 @@ import styles from '../styles/mission.module.css'
 function mission() {
   return (
     <div className = {styles.mainWrap}>
+      <Head>
+        <title>WATURBINE - Our Mission</title>
+        <meta name="description" content="Our mission at WATurbine" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className = {styles.missionMain}>
         <h1>OUR MISSION</h1>
       </div>

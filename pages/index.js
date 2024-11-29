@@ -51,7 +51,7 @@ export default function Home() {
           <div className = {styles.borderWrap}>
         <h1>SUBTEAMS</h1>
           <h3>6 total subteams within WATurbine!</h3>
-          <p>Get to know more about each subteam, and how your skills might be aligned with the team's needs!</p>
+          <p>Get to know more about each subteam, and how your skills might be aligned with the team&#39;s needs!</p>
           <Link href = '/subteams'>
             <button>Learn More</button>
           </Link>
@@ -102,14 +102,14 @@ export default function Home() {
           <div className = {styles.sponsorWrap}>
             <h1>SPONSOR US!</h1>
             <p>Contribute to creating a more sustainable future, in a meaningful way.</p>
-            <Link href = '/sponsor'>
+            <Link href = '/Waturbine_Sponsorship.pdf' target = "_blank">
               <button>SPONSORSHIP</button>
             </Link>
           </div>
         </div>
         <div className = {styles.leftContainer}>
           <h1>JOIN OUR TEAM!</h1>
-          <Link href = '/discover'><button>I'm Interested!</button></Link>
+          <Link href = 'https://discord.gg/JdXtvNtA' target = "_blank"><button>I&#39;m Interested!</button></Link>
         </div>
       </div>
       
