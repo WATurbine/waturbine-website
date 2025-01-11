@@ -51,7 +51,7 @@ function Navbar() {
         </Link>
         </div>
         <div className = {styles.third} id = {styles.contactButton}> 
-          <Link href = 'https://discord.gg/JdXtvNtA' target = "_blank">
+          <Link href = 'https://discord.gg/QJhDqWywaP' target = "_blank">
                 <button>JOIN!</button>
           </Link> 
           <a href = '/Waturbine_Sponsorship.pdf' target = "_blank">
