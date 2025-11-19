@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import logo from "../assets/whitelogo.png";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -25,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Image className={styles.heroLogo} src={logo} />
+        <img className={styles.heroLogo} src={logo.src} alt="WATurbine logo" loading="eager" />
       </main>
       <div className={styles.mainAbout}>
         <div className={styles.aboutText}>

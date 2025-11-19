@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import logo from '../assets/logo.png'
 import styles from '../styles/nav.module.css'
 import ReorderIcon from '@mui/icons-material/Reorder'
@@ -16,9 +15,9 @@ function Navbar() {
   return (
     <nav className = {styles.primarywrapper} id = {openLinks ? styles.open : styles.close}>
       <div className = {styles.mobilenav} onClick={toggleNav}>
-        <Link href = '/'>
-             <Image className = {styles.image} priority src = {logo} alt = '/'/>
-        </Link>
+           <Link href = '/'>
+             <img className = {styles.image} src={logo.src} alt='WATurbine logo' loading="eager" />
+           </Link>
         <Link href = '/'>
               <p>HOME</p>
         </Link>
@@ -46,9 +45,9 @@ function Navbar() {
             </Link> 
         </div>
         <div className = {styles.third}>
-        <Link href = '/'>
-             <Image className = {styles.image} priority src = {logo} alt = '/'/>
-        </Link>
+           <Link href = '/'>
+             <img className = {styles.image} src={logo.src} alt='WATurbine logo' loading="eager" />
+           </Link>
         </div>
         <div className = {styles.third} id = {styles.contactButton}> 
           <Link href = 'https://discord.gg/QJhDqWywaP' target = "_blank">

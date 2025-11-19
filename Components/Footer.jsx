@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../styles/footer.module.css'
-import Image from 'next/image'
 import Link from 'next/link'
 import logo from '../assets/logo.png'
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -12,7 +11,7 @@ function Footer() {
       <div className = {styles.container}>
         <div className = {styles.rightSide}>
             <Link href = '/'>
-                <Image className = {styles.image} priority src = {logo} alt = '/'/>
+              <img className = {styles.image} src={logo.src} alt='WATurbine logo' loading="eager" />
             </Link>
             <div className = {styles.linkBox}>
             <Link href = '/'>
