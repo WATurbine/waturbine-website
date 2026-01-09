@@ -1,5 +1,6 @@
 .main {
-  background-image: url('../assets/background2.jpg');
+  background-image: none;
+  background-color: #0b0b0b;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -17,6 +18,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 6rem;
+  background: transparent;
+  /* start hidden until turbine finishes spinning */
+  opacity: 0;
+  transition: opacity 100ms ease;
+  position: relative;
+  z-index: 10;
+}
+
+/* class added when we want the about section to fade in */
+.mainAboutVisible{
+  opacity: 1;
+}
+
+/* Spacer between hero and about to give scroll room for the turbine animation */
+.heroSpacer{
+  width: 100%;
+  height: 120vh; /* large spacer so scrollYProgress advances before about section */
+  background: var(--background);
+}
+
+@media only screen and (max-width: 800px){
+  .heroSpacer{
+    height: 60vh; /* reduce spacer on small screens */
+  }
+}
+.heroWrap{
+  position: relative;
 }
 .heroLogo{
   width: 55%;
@@ -25,21 +54,81 @@
   background: rgba(0,0,0,0.5);
   border-radius: 250px;
   box-shadow: 0px 0px 10px var(--white), 0px 0px 40px var(--pink); 
+  position: relative;
+  z-index: 20;
 }
 .aboutText{
-  height: 80%;
-  width: 55%;
-  padding: 2%;
+  height: auto;
+  width: auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 3px solid white;
-  border-radius: 20px;
-  background: rgba(0,0,0,0.2);
-  box-shadow: 0px 0px 20px var(--pink); 
-}
+  align-items: center;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+  z-index: 15;
+} 
+
 .aboutText h1{
-  font-size: 60px;
+  font-size: 90px;
+  background: linear-gradient(90deg, #7675ED, #FFCC40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.descriptionSection{
+  width: 100%;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.descriptionContent{
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+  background: rgba(34, 33, 60, 0.3);
+  border-radius: 20px;
+  border: 1px solid rgba(118, 117, 237, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.descriptionText{
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--white);
+  text-align: left;
+  margin: 0;
+}
+
+.highlight{
+  background: linear-gradient(90deg, #7675ED, #FFCC40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 800px){
+  .descriptionContent{
+    padding: 2rem;
+  }
+  .descriptionText{
+    font-size: 1rem;
+  }
 }
 
 .work{
@@ -241,7 +330,7 @@
     #estateLeft{
       background-size: cover;
       background-position: center;
-      //padding: 150px 0px;
+      padding: 150px 0px;
     }
     #estate{
       padding-left: 5%;

@@ -1,50 +1,65 @@
-import Head from "next/head";
-import logo from "../assets/whitelogo.png";
-import Link from "next/link";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
-import SettingsIcon from "@mui/icons-material/Settings";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import AirIcon from "@mui/icons-material/Air";
-import ComputerIcon from "@mui/icons-material/Computer";
+import Image from 'next/image';
+import Link from 'next/link';
+import logo from '../assets/whitelogo.png';
+import styles from '@/styles/Home.module.css';
+import { config } from '@/lib/config';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import AirIcon from '@mui/icons-material/Air';
+import ComputerIcon from '@mui/icons-material/Computer';
+import TurbineScrollAnimation from '../Components/animations/TurbineAnimation';
+import AnimatedText from '../Components/AnimatedText';
 
-const inter = Inter({ subsets: ["latin"] });
+export const metadata = {
+  title: 'Home',
+  description: config.site.description,
+};
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>WATURBINE</title>
-        <meta
-          name="description"
-          content="University of Waterloo small wind turbine design team. "
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <img className={styles.heroLogo} src={logo.src} alt="WATurbine logo" loading="eager" />
-      </main>
-      <div className={styles.mainAbout}>
-        <div className={styles.aboutText}>
-          <h1>WHO WE ARE</h1>
-          <h3>
-            <span>WATurbine</span> is a a team of ambitious engineering students
-            from the University of Waterloo, dedicated to driving innovation in
-            the fields of renewable energy and sustainable technology. Our goal
-            is to design and build the most efficient and sustainable small wind
-            turbine possible for the International Small Wind Turbine
-            Competition.
-          </h3>
-          <h3>
-            As a subsidiary of the University of Waterloo&#39;s Engineers
-            Without Borders Chapter, WATurbine aims to embody the Engineers
-            Without Borders vision through wind power advancement.
-          </h3>
-          <h3></h3>
-        </div>
+      <div className={styles.heroWrap}>
+        <section className={styles.main}>
+          <Image
+            className={styles.heroLogo}
+            src={logo}
+            alt="WATurbine logo"
+            width={500}
+            height={200}
+            priority
+          />
+        </section>
+        <TurbineScrollAnimation />
       </div>
+      {/* spacer to create scroll distance so turbine rotation can complete before about shows */}
+      <div className={styles.heroSpacer} aria-hidden="true" />
+      <section className={styles.mainAbout} aria-label="About WATurbine">
+        <div className={styles.aboutText}>
+          <AnimatedText>
+            <h1>WHO WE ARE</h1>
+          </AnimatedText>
+        </div>
+      </section>
+      <section className={styles.descriptionSection}>
+        <div className={styles.descriptionContent}>
+          <AnimatedText>
+            <p className={styles.descriptionText}>
+              <span className={styles.highlight}>WATurbine</span> is a team of ambitious engineering students
+              from the University of Waterloo, dedicated to driving innovation in
+              the fields of renewable energy and sustainable technology. Our goal
+              is to design and build the most efficient and sustainable small wind
+              turbine possible for the International Small Wind Turbine
+              Competition.
+            </p>
+            <p className={styles.descriptionText}>
+              As a subsidiary of the University of Waterloo&apos;s Engineers
+              Without Borders Chapter, WATurbine aims to embody the Engineers
+              Without Borders vision through wind power advancement.
+            </p>
+          </AnimatedText>
+        </div>
+      </section>
       <div className={styles.work}>
         <div className={styles.rightContainer} id={styles.estateLeft}>
           <h1>OUR MISSION</h1>
@@ -59,11 +74,7 @@ export default function Home() {
         </div>
         <div className={styles.leftContainer} id={styles.estateRight}>
           <h1>The Competition</h1>
-          <Link
-            href="https://www.hanze.nl/en/research/centres/entrance-centre-of-expertise-energy/projects/international-small-wind-turbine-contest-iswtc"
-            target="_blank"
-          >
-            {" "}
+          <Link href={config.external.competition} target="_blank" rel="noopener noreferrer">
             <button>IWSTC</button>
           </Link>
         </div>
@@ -129,14 +140,14 @@ export default function Home() {
               Contribute to creating a more sustainable future, in a meaningful
               way.
             </p>
-            <Link href="/Waturbine_Sponsorship.pdf" target="_blank">
+            <Link href={config.external.sponsorshipPdf} target="_blank" rel="noopener noreferrer">
               <button>SPONSORSHIP</button>
             </Link>
           </div>
         </div>
         <div className={styles.leftContainer}>
           <h1>JOIN OUR TEAM!</h1>
-          <Link href="https://discord.gg/QJhDqWywaP" target="_blank">
+          <Link href={config.social.discord} target="_blank" rel="noopener noreferrer">
             <button>I&#39;m Interested!</button>
           </Link>
         </div>
