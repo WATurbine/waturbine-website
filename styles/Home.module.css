@@ -342,3 +342,14 @@
       padding: 0px 10px;
     }
 }
+
+.textLink {
+  color: #7675ED;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.textLink:hover {
+  color: #FFCC40;
+}

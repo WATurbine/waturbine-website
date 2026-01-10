@@ -49,8 +49,8 @@ export default function Home() {
               from the University of Waterloo, dedicated to driving innovation in
               the fields of renewable energy and sustainable technology. Our goal
               is to design and build the most efficient and sustainable small wind
-              turbine possible for the International Small Wind Turbine
-              Competition.
+              turbine possible for the <Link href="https://www.hanze.nl/en/research/centres/entrance-centre-of-expertise-energy/projects/international-small-wind-turbine-contest-iswtc" target="_blank" rel="noopener noreferrer" className={styles.textLink}>International Small Wind Turbine
+              Competition</Link>.
             </p>
             <p className={styles.descriptionText}>
               As a subsidiary of the University of Waterloo&apos;s Engineers
