@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import TurbineBlades from "./TurbineBlades";
+import CloudAnimation from "./CloudAnimation";
 import styles from "@/styles/Home.module.css";
 
 export default function TurbineScrollAnimation() {
@@ -11,6 +12,7 @@ export default function TurbineScrollAnimation() {
   // viewport. We'll compute this on mount and on resize so we can map the
   // rotation to complete by that scroll progress.
   const [triggerProgress, setTriggerProgress] = React.useState(0.9);
+  const [startScale, setStartScale] = React.useState(3.0);
 
   React.useEffect(() => {
     function computeTrigger() {
@@ -21,12 +23,36 @@ export default function TurbineScrollAnimation() {
       const p = Math.min(1, Math.max(0, top / totalScrollable));
       setTriggerProgress(p);
     }
+
+    function computeResponsiveScale() {
+      const width = window.innerWidth;
+      // Mobile: < 768px -> scale 2.0
+      // Tablet: 768-1024px -> scale 2.5
+      // Laptop: 1024-1440px -> scale 3.0
+      // Desktop: > 1440px -> scale 3.5
+      if (width < 768) {
+        setStartScale(2.0);
+      } else if (width < 1024) {
+        setStartScale(2.5);
+      } else if (width < 1440) {
+        setStartScale(3.0);
+      } else {
+        setStartScale(3.5);
+      }
+    }
+
     computeTrigger();
+    computeResponsiveScale();
     window.addEventListener("resize", computeTrigger);
+    window.addEventListener("resize", computeResponsiveScale);
     // also recompute after a short delay in case layout shifts
-    const t = setTimeout(computeTrigger, 300);
+    const t = setTimeout(() => {
+      computeTrigger();
+      computeResponsiveScale();
+    }, 300);
     return () => {
       window.removeEventListener("resize", computeTrigger);
+      window.removeEventListener("resize", computeResponsiveScale);
       clearTimeout(t);
     };
   }, []);
@@ -45,7 +71,7 @@ export default function TurbineScrollAnimation() {
     // smooth vertical movement slightly
     const y = useSpring(rawY, { stiffness: 120, damping: 20 });
 
-  const scale = useTransform(scrollYProgress, [0, rotateInputEnd], [3.5, 1]);
+  const scale = useTransform(scrollYProgress, [0, rotateInputEnd], [startScale, 1]);
 
   const rawRotate = useTransform(scrollYProgress, [0, rotateInputEnd], [0, 1080]);
 
@@ -69,32 +95,65 @@ export default function TurbineScrollAnimation() {
     return () => unsubscribe();
   }, [rotate]);
 
-  const startOffset = 55; //Offset in px
-  const topPosition = `calc(50% - ${startOffset}px)`;
+  // Position turbine to align with the center of the logo in the hero section
+  // Hero section is 60vh, and logo is centered within it
+  // We want the turbine at roughly 30vh from top (center of 60vh hero section)
+  const startOffset = 0;
+  const topPosition = `40vh`;
 
   // Track if animation is complete and the absolute position to stick to
   const [isAnimationComplete, setIsAnimationComplete] = React.useState(false);
   const [stickyTop, setStickyTop] = React.useState(0);
 
   React.useEffect(() => {
+    // Calculate the sticky position once on mount/resize, not based on scroll
+    function computeStickyPosition() {
+      const about = document.querySelector("." + styles.mainAbout);
+      const descriptionSection = document.querySelector("." + styles.descriptionSection);
+      if (!about) return;
+      const viewportHeight = window.innerHeight;
+      const aboutTop = about.getBoundingClientRect().top + window.scrollY;
+      // Adjust this value to move the turbine's final position up or down
+      // Higher values = lower on page, lower values = higher on page
+      const turbineOffsetFromAbout = 0.34 * viewportHeight; // Adjust this multiplier (0.3 = 30vh below about section)
+      const absoluteTop = aboutTop + turbineOffsetFromAbout;
+      setStickyTop(absoluteTop);
+      
+      // Calculate the bottom of the turbine (center + half of container height)
+      // Turbine container is 260px, so bottom is 130px below center
+      const turbineBottom = absoluteTop + 205;
+      
+      // Set the description section to start at the turbine's bottom
+      if (descriptionSection) {
+        descriptionSection.style.position = 'absolute';
+        descriptionSection.style.top = `${turbineBottom}px`;
+        descriptionSection.style.left = '0';
+        descriptionSection.style.right = '0';
+      }
+    }
+
+    computeStickyPosition();
+    window.addEventListener("resize", computeStickyPosition);
+    const t = setTimeout(computeStickyPosition, 300);
+
     const unsubscribe = scrollYProgress.onChange((v) => {
       if (v >= rotateInputEnd && !isAnimationComplete) {
-        // Calculate current position in viewport and convert to absolute position from page top
-        const currentScrollY = window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const turbineTopInViewport = viewportHeight / 2 - startOffset + (0.2 * viewportHeight); // including the 20vh y offset
-        const absoluteTop = currentScrollY + turbineTopInViewport;
-        setStickyTop(absoluteTop);
         setIsAnimationComplete(true);
       } else if (v < rotateInputEnd && isAnimationComplete) {
         setIsAnimationComplete(false);
       }
     });
-    return () => unsubscribe();
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener("resize", computeStickyPosition);
+      clearTimeout(t);
+    };
   }, [scrollYProgress, rotateInputEnd, isAnimationComplete, startOffset]);
 
   return (
     <>
+      <CloudAnimation />
       <motion.div
         style={{
           scale,
@@ -105,10 +164,13 @@ export default function TurbineScrollAnimation() {
           pointerEvents: "none",
           width: "260px",
           height: "260px",
-          display: "block",
-          // center horizontally via x and animate vertical position via y MotionValue
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          // animate vertical position via y MotionValue
+          y: isAnimationComplete ? 0 : y,
+          transformOrigin: "center center",
           x: "-50%",
-          y: isAnimationComplete ? 0 : y
         }}
       >
         <motion.div

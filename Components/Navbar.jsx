@@ -49,8 +49,8 @@ function Navbar() {
             <Link href = {config.social.discord} target = "_blank" rel="noopener noreferrer">
                 <button>JOIN!</button>
             </Link> 
-            <Link href = {config.external.sponsorshipPdf} target = "_blank" rel="noopener noreferrer">
-                <button>SPONSORSHIP</button>
+            <Link href = '/sponsors'>
+                <button>SPONSORS</button>
             </Link>
         </div>
         <div className = {styles.third} id = {styles.mobileButton} >

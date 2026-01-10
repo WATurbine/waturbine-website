@@ -60,6 +60,8 @@ export default function Home() {
           </AnimatedText>
         </div>
       </section>
+      {/* Spacer to push content below the absolutely positioned description section */}
+      <div style={{ height: '40vh' }} aria-hidden="true" />
       <div className={styles.work}>
         <div className={styles.rightContainer} id={styles.estateLeft}>
           <h1>OUR MISSION</h1>
