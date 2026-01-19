@@ -11,8 +11,15 @@ export const metadata = {
 export default function Sponsors() {
   // Add your sponsor logos here
   const sponsors = [
+    { name: 'SenezCo', logo : "/SenezCo.png"},
+    { name: 'Caitlin Stone Consulting', logo : "/CaitlinStoneConsulting.png"},
+    { name: 'Kenesto', logo : "/Kenesto.png"},
+    { name: 'Ledcor', logo : "/Ledcor.png"},
+    { name: 'Ansys', logo : "/Ansys.png"},
+    // Add more sponsors as needed
+    // { name: '', logo: '/path/to/another-logo.png' }
     // Example: { name: 'Sponsor Name', logo: '/path/to/logo.png' }
-  ];
+  ]; 
 
   return (
     <div className={styles.sponsorsContainer}>
