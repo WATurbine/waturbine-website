@@ -9,44 +9,56 @@ export const metadata = {
 };
 
 export default function Sponsors() {
-  // Add your sponsor logos here
-  const sponsors = [
-    { name: 'SenezCo', logo : "/SenezCo.png"},
-    { name: 'Caitlin Stone Consulting', logo : "/CaitlinStoneConsulting.png"},
-    { name: 'Kenesto', logo : "/Kenesto.png"},
-    { name: 'Ledcor', logo : "/Ledcor.png"},
-    { name: 'Ansys', logo : "/Ansys.png"},
-    // Add more sponsors as needed
-    // { name: '', logo: '/path/to/another-logo.png' }
-    // Example: { name: 'Sponsor Name', logo: '/path/to/logo.png' }
-  ]; 
+  // Organize sponsors by tier
+  const sponsorTiers = {
+    platinum: [
+      // Add platinum tier sponsors here
+      // { name: 'Sponsor Name', logo: '/path/to/logo.png' }
+    ],
+    gold: [
+      { name: 'SenezCo', logo : "/SenezCo.png"},
+      { name: 'Caitlin Stone Consulting', logo : "/CaitlinStoneConsulting.png"},
+      { name: 'Kenesto', logo : "/Kenesto.png"},
+    ],
+    silver: [
+      { name: 'Ledcor', logo : "/Ledcor.png"},
+      { name: 'Ansys', logo : "/Ansys.png"},
+    ],
+    bronze: [
+      // Add bronze tier sponsors here
+      // { name: 'Sponsor Name', logo: '/path/to/logo.png' }
+    ],
+  };
+
+  const tierConfig = {
+    platinum: { label: 'Platinum', className: styles.platinumTier, gridClass: styles.platinumGrid },
+    gold: { label: 'Gold', className: styles.goldTier, gridClass: styles.goldGrid },
+    silver: { label: 'Silver', className: styles.silverTier, gridClass: styles.silverGrid },
+    bronze: { label: 'Bronze', className: styles.bronzeTier, gridClass: styles.bronzeGrid },
+  };
 
   return (
     <div className={styles.sponsorsContainer}>
       <h1 className={styles.sponsorsTitle}>SPONSORS</h1>
-      <div className={styles.sponsorsGrid}>
-        {sponsors.map((sponsor, index) => (
-          <SponsorCard 
-            key={index}
-            name={sponsor.name}
-            logo={sponsor.logo}
-          />
-        ))}
-        {/* Placeholder cards for demonstration */}
-        {sponsors.length === 0 && (
-          <>
-            <div className={styles.sponsorCard}>
-              <p style={{ color: 'var(--white)', opacity: 0.5 }}>Sponsor Logo</p>
+      
+      {Object.entries(sponsorTiers).map(([tierKey, sponsors]) => 
+        sponsors.length > 0 && (
+          <div key={tierKey} className={styles.tierSection}>
+            <h2 className={`${styles.tierTitle} ${tierConfig[tierKey].className}`}>
+              {tierConfig[tierKey].label}
+            </h2>
+            <div className={`${styles.sponsorsGrid} ${tierConfig[tierKey].gridClass}`}>
+              {sponsors.map((sponsor, index) => (
+                <SponsorCard 
+                  key={index}
+                  name={sponsor.name}
+                  logo={sponsor.logo}
+                />
+              ))}
             </div>
-            <div className={styles.sponsorCard}>
-              <p style={{ color: 'var(--white)', opacity: 0.5 }}>Sponsor Logo</p>
-            </div>
-            <div className={styles.sponsorCard}>
-              <p style={{ color: 'var(--white)', opacity: 0.5 }}>Sponsor Logo</p>
-            </div>
-          </>
-        )}
-      </div>
+          </div>
+        )
+      )}
       <div className={styles.ctaSection}>
         <Link href={config.external.sponsorshipPdf} target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
           View our sponsorship package

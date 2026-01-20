@@ -7,8 +7,7 @@ export default function SponsorCard({ logo, name, alt }) {
       <Image 
         src={logo} 
         alt={alt || `${name} logo`}
-        width={200}
-        height={100}
+        fill
         className={styles.sponsorLogo}
       />
     </div>

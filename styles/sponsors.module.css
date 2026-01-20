@@ -15,26 +15,105 @@
   background-clip: text;
 }
 
+.tierSection {
+  margin-bottom: 4rem;
+}
+
+.tierTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.platinumTier {
+  background: linear-gradient(90deg, #E8E8E8, #F0F0F0, #D4D4D4, #E8E8E8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.goldTier {
+  background: linear-gradient(90deg, #FFD700, #FFF8DC, #FFD700, #FFA500);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.silverTier {
+  background: linear-gradient(90deg, #C0C0C0, #E8E8E8, #C0C0C0, #A8A8A8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bronzeTier {
+  background: linear-gradient(90deg, #CD7F32, #E6A85C, #B87333, #CD7F32);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .sponsorsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
+  justify-content: center;
+}
+
+.platinumGrid {
+  max-width: 1000px;
+}
+
+.goldGrid {
+  max-width: 900px;
+}
+
+.silverGrid {
+  max-width: 850px;
+}
+
+.bronzeGrid {
+  max-width: 800px;
 }
 
 .sponsorCard {
   background: rgba(34, 33, 60, 0.3);
   border: 1px solid rgba(118, 117, 237, 0.2);
   border-radius: 15px;
-  padding: 2rem;
+  padding: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 150px;
+  aspect-ratio: 1 / 1;
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(10px);
+  flex: 0 1 calc(25% - 1.5rem);
+  min-width: 150px;
+}
+
+.platinumGrid .sponsorCard {
+  flex: 0 1 calc(33.333% - 1.35rem);
+  min-width: 200px;
+}
+
+.goldGrid .sponsorCard {
+  flex: 0 1 calc(25% - 1.5rem);
+  min-width: 180px;
+}
+
+.silverGrid .sponsorCard {
+  flex: 0 1 calc(20% - 1.6rem);
+  min-width: 160px;
+}
+
+.bronzeGrid .sponsorCard {
+  flex: 0 1 calc(16.666% - 1.67rem);
+  min-width: 140px;
 }
 
 .sponsorCard:hover {
@@ -43,10 +122,7 @@
 }
 
 .sponsorLogo {
-  width: 100%;
-  height: auto;
   object-fit: contain;
-  max-width: 200px;
 }
 
 .ctaSection {
