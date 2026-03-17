@@ -9,24 +9,23 @@ export const metadata = {
 };
 
 export default function Sponsors() {
-  // Organize sponsors by tier
+  // Primary editing surface for sponsor content.
+  // Logos should reference files in /public for predictable static asset delivery.
   const sponsorTiers = {
     platinum: [
-      // Add platinum tier sponsors here
-      // { name: 'Sponsor Name', logo: '/path/to/logo.png' }
+      { name: 'Ledcor', logo : "/Ledcor.png"},
     ],
     gold: [
+      
+    ],
+    silver: [
+      
+    ],
+    bronze: [
       { name: 'SenezCo', logo : "/SenezCo.png"},
       { name: 'Caitlin Stone Consulting', logo : "/CaitlinStoneConsulting.png"},
       { name: 'Kenesto', logo : "/Kenesto.png"},
-    ],
-    silver: [
-      { name: 'Ledcor', logo : "/Ledcor.png"},
       { name: 'Ansys', logo : "/Ansys.png"},
-    ],
-    bronze: [
-      // Add bronze tier sponsors here
-      // { name: 'Sponsor Name', logo: '/path/to/logo.png' }
     ],
   };
 
@@ -39,7 +38,14 @@ export default function Sponsors() {
 
   return (
     <div className={styles.sponsorsContainer}>
-      <h1 className={styles.sponsorsTitle}>SPONSORS</h1>
+      <h1 className={styles.sponsorsTitle}>
+        <span className={styles.sponsorsTitleText}>SPONSORS</span>
+      </h1>
+      <div className={styles.ctaSection}>
+        <Link href={config.external.sponsorshipPdf} target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
+          View our sponsorship package
+        </Link>
+      </div>
       
       {Object.entries(sponsorTiers).map(([tierKey, sponsors]) => 
         sponsors.length > 0 && (
@@ -59,11 +65,6 @@ export default function Sponsors() {
           </div>
         )
       )}
-      <div className={styles.ctaSection}>
-        <Link href={config.external.sponsorshipPdf} target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
-          View our sponsorship package
-        </Link>
-      </div>
     </div>
   );
 }

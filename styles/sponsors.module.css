@@ -1,14 +1,28 @@
 .sponsorsContainer {
   min-height: 100vh;
-  padding: 8rem 4rem;
+  padding: calc(80px + 1.5rem) 1.5rem 5rem;
   background: var(--background);
 }
 
 .sponsorsTitle {
-  font-size: 4rem;
-  font-weight: bold;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2rem;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 250px;
+  box-shadow: 0 0 10px var(--white), 0 0 40px var(--pink);
   text-align: center;
-  margin-bottom: 4rem;
+  margin: 0 auto 2rem;
+}
+
+.sponsorsTitleText {
+  font-size: clamp(2.05rem, 6.1vw, 3.9rem);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  font-weight: bold;
+  margin: 0;
   background: linear-gradient(90deg, #7675ED, #FFCC40);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -27,7 +41,7 @@
 }
 
 .platinumTier {
-  background: linear-gradient(90deg, #E8E8E8, #F0F0F0, #D4D4D4, #E8E8E8);
+  background: linear-gradient(90deg, #e4e4e4, rgb(212, 212, 225), #b3c1d5);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -126,35 +140,41 @@
 }
 
 .ctaSection {
-  margin-top: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .ctaButton {
   display: inline-block;
-  padding: 0.85rem 1.75rem;
+  padding: 1.1rem 2.3rem;
   border-radius: 999px;
-  border: 1px solid rgba(118, 117, 237, 0.4);
-  background: rgba(34, 33, 60, 0.5);
-  color: var(--white);
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #7675ED;
   font-weight: 600;
+  font-size: 1.05rem;
   letter-spacing: 0.5px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .ctaButton:hover {
   transform: translateY(-2px);
-  border-color: rgba(118, 117, 237, 0.8);
+  border-color: #ffffff;
   box-shadow: 0 10px 25px rgba(118, 117, 237, 0.35);
 }
 
 @media only screen and (max-width: 768px) {
   .sponsorsContainer {
-    padding: 4rem 2rem;
+    padding: calc(80px + 1rem) 0.8rem 4rem;
   }
 
   .sponsorsTitle {
-    font-size: 2.5rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .sponsorsTitleText {
+    font-size: clamp(2.05rem, 6.1vw, 3.9rem);
+    margin-bottom: 0;
   }
 
   .sponsorsGrid {

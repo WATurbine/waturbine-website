@@ -26,7 +26,7 @@ html{
 }
 
 :root{
-  --background: #0b0b0b;
+  --background: #14141f;
   --purple: #7675ED;
   --pink: #E2C2C6;
   --yellow: #FFCC40;
@@ -38,14 +38,19 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  min-height: 100vh;
   width: 100vw;
   background: var(--background);
   color: white;
   padding: 0;
   margin: 0;
   overflow-x: hidden;  
+}
+
+main {
+  width: 100%;
+  flex: 1;
 }
 h1{
   font-size: 80px;

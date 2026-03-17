@@ -1,6 +1,14 @@
+/* Isolated container for hero and about sections - prevents layout shifts from other content */
+.heroAboutContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  isolation: isolate; /* Creates a new stacking context to isolate from other sections */
+}
+
 .main {
   background-image: none;
-  background-color: #0b0b0b;
+  background-color: var(--background);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -149,7 +157,7 @@
   justify-content: center;
 }
 .leftContainer iframe{
-    height: 30vw;
+    height: 40vw;
     width: 50vw;
 }
 .rightContainer h1{
@@ -181,9 +189,6 @@
   font-size: 40px;
 }
 #estateLeft{
-  background: url('../assets/about.jpg');
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
   color: var(--background);
 }
@@ -352,4 +357,94 @@
 
 .textLink:hover {
   color: #FFCC40;
+}
+
+.missionCtaSection {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1.5rem 6rem;
+}
+
+.missionCtaSection::before,
+.missionCtaSection::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.missionCtaSection::before {
+  width: min(70rem, 92vw);
+  height: 13rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 25% 50%, rgba(118, 117, 237, 0.25), transparent 45%),
+    radial-gradient(circle at 75% 50%, rgba(255, 204, 64, 0.22), transparent 45%);
+  filter: blur(10px);
+}
+
+.missionCtaSection::after {
+  width: min(42rem, 86vw);
+  height: 1px;
+  bottom: 2rem;
+  background: linear-gradient(90deg, transparent, rgba(118, 117, 237, 0.6), rgba(255, 204, 64, 0.65), transparent);
+}
+
+.missionCtaLink {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(1.2rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: #7675ED;
+  text-underline-offset: 0.25em;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  background: rgba(34, 33, 60, 0.32);
+  border: 1px solid rgba(118, 117, 237, 0.28);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  backdrop-filter: blur(10px);
+  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.missionCtaLink::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.missionCtaLink:hover {
+  color: #FFCC40;
+  border-color: rgba(255, 204, 64, 0.45);
+  box-shadow: 0 0 24px rgba(255, 204, 64, 0.22), 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 800px) {
+  .missionCtaSection {
+    padding: 3.5rem 1rem 4.5rem;
+  }
+
+  .missionCtaSection::before {
+    height: 9rem;
+  }
+
+  .missionCtaSection::after {
+    bottom: 1.4rem;
+  }
+
+  .missionCtaLink {
+    width: 100%;
+    max-width: 32rem;
+    padding: 1.25rem 1rem;
+  }
 }

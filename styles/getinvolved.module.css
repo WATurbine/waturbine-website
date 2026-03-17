@@ -1,0 +1,266 @@
+.shell {
+  width: 100%;
+  min-height: 100vh;
+  padding: calc(80px + 1.5rem) 1.5rem 4.5rem;
+  font-family: var(--font-inter), sans-serif;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(242, 182, 74, 0.2), transparent 38%),
+    radial-gradient(circle at 88% 15%, rgba(85, 199, 247, 0.2), transparent 35%),
+    linear-gradient(170deg, #10131f 0%, #0f1725 52%, #111827 100%);
+}
+
+.titleRow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 2rem;
+}
+
+.pageTitle {
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  font-size: clamp(2.05rem, 6.1vw, 3.9rem);
+  line-height: 1.08;
+  padding: 1.2rem 2rem;
+  border-radius: 250px;
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow: 0 0 10px var(--white), 0 0 40px var(--pink);
+  letter-spacing: 0.02em;
+}
+
+.explorer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.25rem;
+}
+
+.buttonRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.teamButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.62rem 1rem;
+  font-family: var(--font-inter), sans-serif;
+  color: #f6f8ff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.teamButton:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.activeButton {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.teamStage {
+  min-height: 68vh;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(155deg, rgba(14, 19, 34, 0.95), rgba(17, 25, 38, 0.9));
+  padding: clamp(1.1rem, 2.5vw, 2rem);
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(350px, 1.05fr);
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  align-items: stretch;
+}
+
+.infoSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.infoSide h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  margin: 0;
+}
+
+.infoSide h3 {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  margin: 0.8rem 0 0;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.summary {
+  margin: 0.95rem 0 0;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.commitment {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.roleList {
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.roleList li {
+  font-family: var(--font-inter), sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.45;
+}
+
+.ctaRow {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.applyBtn,
+.secondaryBtn {
+  border-radius: 999px;
+  padding: 0.72rem 1.12rem;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.applyBtn {
+  background: linear-gradient(120deg, #55c7f7, #f2b64a);
+  color: #0b1220;
+}
+
+.applyBtn:hover {
+  opacity: 0.92;
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mediaSide {
+  position: relative;
+  min-height: 360px;
+  border-radius: 18px;
+  overflow: visible;
+  padding: 0.3rem;
+  display: grid;
+  place-items: center;
+}
+
+.imageFrameMain,
+.imageFrameSide {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.imageFrameMain {
+  width: min(100%, 560px);
+  height: min(88%, 420px);
+  inset: 8% auto auto 2%;
+}
+
+.imageFrameSide {
+  width: min(50%, 280px);
+  height: min(43%, 210px);
+  right: 1%;
+  bottom: 3%;
+  transform: rotate(-6deg);
+}
+
+.imageFrameMain :global(img),
+.imageFrameSide :global(img) {
+  object-fit: cover;
+}
+
+@media (max-width: 1020px) {
+  .teamStage {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .mediaSide {
+    min-height: 370px;
+    margin-top: 0.3rem;
+  }
+
+  .imageFrameMain {
+    inset: 4% auto auto 0;
+    width: 92%;
+    height: 76%;
+  }
+
+  .imageFrameSide {
+    width: 48%;
+    height: 33%;
+    right: 3%;
+    bottom: 6%;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: calc(80px + 1rem) 0.8rem 2.7rem;
+  }
+
+  .titleRow {
+    margin-bottom: 1.2rem;
+  }
+
+  .pageTitle {
+    padding: 1rem 1.2rem;
+  }
+
+  .teamButton {
+    width: calc(50% - 0.38rem);
+    justify-content: center;
+  }
+
+  .teamStage {
+    border-radius: 18px;
+    padding: 0.9rem;
+    gap: 1rem;
+  }
+
+  .mediaSide {
+    min-height: 300px;
+  }
+
+  .imageFrameMain {
+    width: 100%;
+    height: 70%;
+    inset: 0 auto auto 0;
+  }
+
+  .imageFrameSide {
+    width: 58%;
+    height: 33%;
+    right: 0;
+    bottom: 0;
+  }
+}
