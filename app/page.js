@@ -69,9 +69,11 @@ export default function Home() {
       <SubteamsSection />
 
       <section className={styles.missionCtaSection} aria-label="Our Mission call to action">
+        <div className={styles.imagePlaceholderLeft} role="img" aria-label="Placeholder for future image"></div>
         <Link href="/mission" className={styles.missionCtaLink}>
           Interested? Learn more about Our Mission
         </Link>
+        <div className={styles.imagePlaceholderRight} role="img" aria-label="Placeholder for future image"></div>
       </section>
     </>
   );

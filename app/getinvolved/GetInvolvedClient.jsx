@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -89,6 +89,14 @@ const panelMotion = {
 export default function GetInvolvedClient() {
   const [activeId, setActiveId] = useState(teams[0].id);
 
+  useEffect(() => {
+    document.body.classList.add('get-involved-gradient');
+
+    return () => {
+      document.body.classList.remove('get-involved-gradient');
+    };
+  }, []);
+
   const activeTeam = useMemo(
     () => teams.find((team) => team.id === activeId) ?? teams[0],
     [activeId]
@@ -149,7 +157,7 @@ export default function GetInvolvedClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Apply
+                  Join
                 </Link>
                 <Link href="/contact" className={styles.secondaryBtn}>
                   Ask a question

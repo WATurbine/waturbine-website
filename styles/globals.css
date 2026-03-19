@@ -48,6 +48,10 @@ body{
   overflow-x: hidden;  
 }
 
+body.get-involved-gradient {
+  background: #111827;
+}
+
 main {
   width: 100%;
   flex: 1;
