@@ -132,3 +132,67 @@
         padding: 1.4rem;
     }
 }
+.teamSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.teamCard {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(34, 33, 60, 0.48), rgba(22, 27, 42, 0.7));
+    border: 1px solid rgba(118, 117, 237, 0.35);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.teamCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+    border-color: rgba(118, 117, 237, 0.55);
+}
+
+.teamCardImage {
+    object-fit: cover;
+    object-position: center;
+}
+
+.teamCardOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.teamCardName {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: left;
+    margin-bottom: 0.4rem;
+}
+
+.teamCardTitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: right;
+    align-self: flex-end;
+}

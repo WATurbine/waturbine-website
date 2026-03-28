@@ -12,7 +12,7 @@ import { config } from '@/lib/config';
 // Keep top-level navigation labels in one place so desktop/mobile menus stay in sync.
 const navLinks = [
   { href: '/', label: 'HOME' },
-  { href: '/mission', label: 'OUR MISSION' },
+  { href: '/who-we-are', label: 'WHO WE ARE' },
   { href: '/sponsors', label: 'SPONSORS' },
   { href: '/getinvolved', label: 'GET INVOLVED' },
   { href: '/contact', label: 'CONTACT US' },

@@ -1,15 +1,26 @@
+import TeamCard from '../../Components/TeamCard';
 import styles from '../../styles/mission.module.css';
 
 export const metadata = {
-  title: 'Our Mission',
-  description: 'Learn about WATurbine\'s mission to design practical, efficient small wind turbines.',
+  title: 'Who We Are',
+  description: "Learn about WATurbine's mission to design practical, efficient small wind turbines.",
 };
 
-export default function Mission() {
+const teamMembers = [
+  { id: 1, name: 'Team Member 1', subteam: 'Aerodynamics', title: 'Aerodynamics Lead', image: null },
+  { id: 2, name: 'Team Member 2', subteam: 'Mechanical', title: 'Mechanical Lead', image: null },
+  { id: 3, name: 'Team Member 3', subteam: 'Controls', title: 'Controls Lead', image: null },
+  { id: 5, name: 'Team Member 5', subteam: 'Power', title: 'Power Lead', image: null },
+  { id: 4, name: 'Team Member 4', subteam: 'Structural', title: 'Structural Lead', image: null },
+];
+
+const sortedTeamMembers = [...teamMembers].sort((a, b) => a.subteam.localeCompare(b.subteam));
+
+export default function WhoWeAre() {
   return (
     <div className={styles.mainWrap}>
       <div className={styles.missionMain}>
-        <h1 className={styles.heroTitle}>OUR MISSION</h1>
+        <h1 className={styles.heroTitle}>WHO WE ARE</h1>
       </div>
       <div className={styles.content}>
         <p className={styles.lede}>
@@ -54,6 +65,21 @@ export default function Mission() {
           </p>
           <div className={styles.imagePlaceholder} role="img" aria-label="Community impact placeholder">
             <span>Community Impact Placeholder</span>
+          </div>
+        </div>
+
+        <div className={styles.teamSection}>
+          <h2 className={styles.sectionTitle}>Our Team</h2>
+          <div className={styles.teamGrid}>
+            {sortedTeamMembers.map((member) => (
+              <TeamCard
+                key={member.id}
+                name={member.name}
+                title={member.title}
+                image={member.image}
+                alt={member.name}
+              />
+            ))}
           </div>
         </div>
       </div>
