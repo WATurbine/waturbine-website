@@ -58,7 +58,7 @@ Most updates happen in these files:
 - Components/Footer.jsx: footer links and social icons
 - app/getinvolved/GetInvolvedClient.jsx: subteam cards, copy, accents, and imagery
 - app/sponsors/page.js: sponsor tiers and logos
-- app/mission/page.js: mission copy and image placeholders
+- app/who-we-are/page.js: mission copy and image placeholders
 - app/contact/ContactForm.jsx: form fields and submit behavior
 - app/api/contact/route.js: contact form validation and outbound email handling
 
