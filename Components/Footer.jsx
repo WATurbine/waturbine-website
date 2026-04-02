@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/footer.module.css'
 import Link from 'next/link'
-import logo from '../assets/logo.png'
+import logo from '../assets/logoColour.png'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ForumIcon from '@mui/icons-material/Forum';
