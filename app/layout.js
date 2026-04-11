@@ -1,4 +1,5 @@
 import { Inter, Staatliches, Tajawal } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import Navbar from '@/Components/Navbar';
 import Footer from '@/Components/Footer';
 import '@/styles/globals.css';
@@ -91,6 +92,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
