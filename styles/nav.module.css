@@ -3,6 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 100;
 }
 .desktopnav{
     height: 80px;
@@ -10,9 +11,36 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: 2rem;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(3px);
+}
+
+.navButtonContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-right: 1.5rem;
+    padding-top: 2px;
+}
+
+.navButtonContainer button{
+    margin: 0;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34, 33, 60, 0.5);
+    border-color: rgba(34, 33, 60, 0.8);
+    color: white;
+    transition: box-shadow 0.3s ease;
+}
+
+.navButtonContainer button:hover{
+    background: rgba(34, 33, 60, 0.7);
+    box-shadow: 0 0 15px rgba(118, 117, 237, 0.4), 0 0 30px rgba(118, 117, 237, 0.2);
 }
 .third{
     width: 100%;
@@ -71,10 +99,7 @@
     margin: 0px 10px;
 }
 @media only screen and (max-width: 800px){
-    #navlinks{
-        display: none;
-    }
-    #contactButton{
+    .navButtonContainer{
         display: none;
     }
     #mobileButton{

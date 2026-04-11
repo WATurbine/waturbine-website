@@ -1,0 +1,225 @@
+.sponsorsContainer {
+  min-height: 100vh;
+  padding: calc(80px + 1.5rem) 1.5rem 5rem;
+  background: var(--background);
+}
+
+.sponsorsTitle {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2rem;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 250px;
+  box-shadow: 0 0 10px var(--white), 0 0 40px var(--pink);
+  text-align: center;
+  margin: 0 auto 2rem;
+}
+
+.sponsorsTitleText {
+  font-size: clamp(2.05rem, 6.1vw, 3.9rem);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(90deg, #7675ED, #FFCC40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tierSection {
+  margin-bottom: 4rem;
+}
+
+.tierTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.platinumTier {
+  background: linear-gradient(90deg, #e4e4e4, rgb(212, 212, 225), #b3c1d5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.goldTier {
+  background: linear-gradient(90deg, #FFD700, #FFF8DC, #FFD700, #FFA500);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.silverTier {
+  background: linear-gradient(90deg, #C0C0C0, #E8E8E8, #C0C0C0, #A8A8A8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bronzeTier {
+  background: linear-gradient(90deg, #CD7F32, #E6A85C, #B87333, #CD7F32);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sponsorsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.platinumGrid {
+  max-width: 1000px;
+}
+
+.goldGrid {
+  max-width: 900px;
+}
+
+.silverGrid {
+  max-width: 850px;
+}
+
+.bronzeGrid {
+  max-width: 800px;
+}
+
+.sponsorCard {
+  background: rgba(34, 33, 60, 0.3);
+  border: 1px solid rgba(118, 117, 237, 0.2);
+  border-radius: 15px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  flex: 0 1 calc(25% - 1.5rem);
+  min-width: 150px;
+}
+
+.platinumGrid .sponsorCard {
+  flex: 0 1 calc(33.333% - 1.35rem);
+  min-width: 200px;
+}
+
+.goldGrid .sponsorCard {
+  flex: 0 1 calc(25% - 1.5rem);
+  min-width: 180px;
+}
+
+.silverGrid .sponsorCard {
+  flex: 0 1 calc(20% - 1.6rem);
+  min-width: 160px;
+}
+
+.bronzeGrid .sponsorCard {
+  flex: 0 1 calc(16.666% - 1.67rem);
+  min-width: 140px;
+}
+
+.sponsorCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 30px rgba(118, 117, 237, 0.3);
+}
+
+.sponsorLogo {
+  object-fit: contain;
+}
+
+.ctaSection {
+  margin: 2.8rem auto 3rem;
+  text-align: center;
+  max-width: 980px;
+}
+
+.ctaCopyBlock {
+  background:
+    radial-gradient(circle at top left, rgba(118, 117, 237, 0.28), transparent 60%),
+    linear-gradient(140deg, rgba(11, 16, 46, 0.82), rgba(31, 24, 69, 0.75));
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 20px;
+  padding: 1.6rem 1.5rem;
+  margin: 0 auto 2rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32), 0 0 36px rgba(118, 117, 237, 0.22);
+  backdrop-filter: blur(5px);
+}
+
+.ctaIntro {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 1.08rem;
+  line-height: 1.78;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.ctaIntro + .ctaIntro {
+  margin-top: 1rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1.1rem 2.3rem;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #7675ED;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  border-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(118, 117, 237, 0.35);
+}
+
+@media only screen and (max-width: 768px) {
+  .sponsorsContainer {
+    padding: calc(80px + 1rem) 0.8rem 4rem;
+  }
+
+  .sponsorsTitle {
+    padding: 1rem 1.2rem;
+  }
+
+  .sponsorsTitleText {
+    font-size: clamp(2.05rem, 6.1vw, 3.9rem);
+    margin-bottom: 0;
+  }
+
+  .sponsorsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .ctaSection {
+    margin: 2.2rem auto 2.5rem;
+  }
+
+  .ctaCopyBlock {
+    padding: 1.15rem 1rem;
+    margin: 0 auto 1.5rem;
+    border-radius: 16px;
+  }
+
+  .ctaIntro {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}

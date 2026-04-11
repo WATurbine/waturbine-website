@@ -1,21 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accessibility - Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: #7675ED;
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.skip-to-main:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1em;
+}
+
 html{
   --scroll-behavior: smooth!important;
   scroll-behavior: smooth!important;
 }
+
 :root{
-  --background: #22213c;
+  --background: #14141f;
   --purple: #7675ED;
   --pink: #E2C2C6;
   --yellow: #FFCC40;
   --white: #E1E5F2;
   --ewb: #fe6002;
 }
+
 body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  min-height: 100vh;
   width: 100vw;
   background: var(--background);
   color: white;
@@ -23,27 +47,36 @@ body{
   margin: 0;
   overflow-x: hidden;  
 }
+
+body.get-involved-gradient {
+  background: #111827;
+}
+
+main {
+  width: 100%;
+  flex: 1;
+}
 h1{
   font-size: 80px;
   font-style: normal; 
-  font-family: "Staatliches", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 700;
 }
 h2{
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal; 
-  font-family: "Staatliches", sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }
 h3{
   font-size: 20px;
-  font-family: "Staatliches", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
   font-style: normal; 
 }
 
 p{
-  font-family: "Tajawal", sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 15px;
@@ -51,7 +84,7 @@ p{
 
 a{
   text-decoration: none;
-  font-family: "Tajawal", sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-weight: 400;
   color: white;
   transition: all 0.3s ease;
@@ -59,13 +92,12 @@ a{
 a:hover{
   --webkit--cursor: pointer;
   cursor: pointer;
-  //transform: scaleY(1.05);
 }
 button{
   text-align: center;
-  font-family: "Staatliches", sans-serif;
+  font-family: var(--font-inter), sans-serif;
   padding: 10px 25px;
-  font-weight: 800;
+  font-weight: 700;
   background: var(--white);
   color: var(--background);
   border: 2px solid var(--yellow);

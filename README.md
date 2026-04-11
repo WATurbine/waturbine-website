@@ -1,40 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WATurbine Website
 
-## Getting Started
+Official public website for the University of Waterloo WATurbine team, built with Next.js App Router.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js 14 (App Router)
+- React 18
+- CSS Modules + global styles
+- Framer Motion (interactive sections)
+- Resend (contact form email delivery)
+
+## Development
+
+Install dependencies and run locally:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Useful scripts:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- npm run dev: start local development server
+- npm run build: production build
+- npm run start: run production build locally
+- npm run lint: run Next.js lint checks
+- npm run format: format project files with Prettier
+- npm run format:check: verify formatting only
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Environment Variables
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Public values (client and server):
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- NEXT_PUBLIC_SITE_NAME
+- NEXT_PUBLIC_SITE_URL
+- NEXT_PUBLIC_INSTAGRAM_URL
+- NEXT_PUBLIC_LINKEDIN_URL
+- NEXT_PUBLIC_EMAIL
+- NEXT_PUBLIC_DISCORD_URL
+- NEXT_PUBLIC_COMPETITION_URL
+- NEXT_PUBLIC_SPONSORSHIP_PDF
 
-## Learn More
+Server-only values for contact form delivery:
 
-To learn more about Next.js, take a look at the following resources:
+- RESEND_API_KEY
+- RESEND_FROM
+- RESEND_TO
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If a variable is missing, fallback defaults are defined in lib/config.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Content Maintenance Guide
 
-## Deploy on Vercel
+Most updates happen in these files:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- lib/config.js: central site metadata, social links, and shared external URLs
+- Components/Navbar.jsx: top navigation labels and links
+- Components/Footer.jsx: footer links and social icons
+- app/getinvolved/GetInvolvedClient.jsx: subteam cards, copy, accents, and imagery
+- app/sponsors/page.js: sponsor tiers and logos
+- app/who-we-are/page.js: mission copy and image placeholders
+- app/contact/ContactForm.jsx: form fields and submit behavior
+- app/api/contact/route.js: contact form validation and outbound email handling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Asset notes:
+
+- Put sponsor logos and similar static assets in public.
+- Keep photo assets used with imported Image components under assets when module imports are needed.
+
+## Styling Conventions
+
+- Global typography, colors, and element defaults live in styles/globals.css.
+- Page and component styles use CSS Modules in styles/*.module.css.
+- Keep spacing for top-level pages aligned with the fixed navbar height (80px).
+- Title pills across subpages should use the same size system for visual consistency.
+
+## Project Structure
+
+- app/: routes, layouts, loading/error states, and API handlers
+- Components/: reusable UI and animation components
+- styles/: CSS modules and global styles
+- lib/: shared configuration and helpers
+- public/: static assets served from root
+
+## Deployment
+
+Deploy as a standard Next.js app. Ensure required environment variables are set in the deployment platform before release.

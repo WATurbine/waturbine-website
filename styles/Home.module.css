@@ -1,5 +1,15 @@
+/* Isolated container for hero and about sections - prevents layout shifts from other content */
+.heroAboutContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+  isolation: isolate; /* Creates a new stacking context to isolate from other sections */
+}
+
 .main {
-  background-image: url('../assets/background2.jpg');
+  background-image: none;
+  background-color: var(--background);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -7,39 +17,132 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem;
-  height: 60vh;
+  padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+  min-height: 60vh;
 }
 .mainAbout{
   width: 100%;
-  height: 60vh;
+  min-height: 55vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 5rem 1.5rem 0;
+  background: transparent;
+  /* start hidden until turbine finishes spinning */
+  opacity: 0;
+  transition: opacity 100ms ease;
+  position: relative;
+  z-index: 10;
+}
+
+/* class added when we want the about section to fade in */
+.mainAboutVisible{
+  opacity: 1;
+}
+
+/* Spacer between hero and about to give scroll room for the turbine animation */
+.heroSpacer{
+  width: 100%;
+  height: 120vh; /* large spacer so scrollYProgress advances before about section */
+  background: var(--background);
+}
+
+@media only screen and (max-width: 800px){
+  .heroSpacer{
+    height: 60vh; /* reduce spacer on small screens */
+  }
+}
+.heroWrap{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .heroLogo{
-  width: 55%;
+  width: min(65vw, 780px);
   height: auto;
   margin-top: 10%;
   background: rgba(0,0,0,0.5);
   border-radius: 250px;
   box-shadow: 0px 0px 10px var(--white), 0px 0px 40px var(--pink); 
+  position: relative;
+  z-index: 20;
 }
 .aboutText{
-  height: 80%;
-  width: 55%;
-  padding: 2%;
+  height: auto;
+  width: auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 3px solid white;
-  border-radius: 20px;
-  background: rgba(0,0,0,0.2);
-  box-shadow: 0px 0px 20px var(--pink); 
-}
+  align-items: center;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+  z-index: 15;
+} 
+
 .aboutText h1{
-  font-size: 60px;
+  font-size: clamp(3rem, 8vw, 5.6rem);
+  text-align: center;
+  background: linear-gradient(90deg, #7675ED, #FFCC40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.descriptionSection{
+  width: 100%;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 1.5rem;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.descriptionContent{
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: rgba(34, 33, 60, 0.3);
+  border-radius: 20px;
+  border: 1px solid rgba(118, 117, 237, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.descriptionText{
+  font-size: clamp(1rem, 1.4vw + 0.6rem, 1.25rem);
+  line-height: 1.8;
+  color: var(--white);
+  text-align: left;
+  margin: 0;
+}
+
+.highlight{
+  background: linear-gradient(90deg, #7675ED, #FFCC40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 800px){
+  .descriptionContent{
+    padding: 2rem;
+  }
+  .descriptionText{
+    font-size: 1rem;
+  }
 }
 
 .work{
@@ -60,7 +163,7 @@
   justify-content: center;
 }
 .leftContainer iframe{
-    height: 30vw;
+    height: 40vw;
     width: 50vw;
 }
 .rightContainer h1{
@@ -92,9 +195,6 @@
   font-size: 40px;
 }
 #estateLeft{
-  background: url('../assets/about.jpg');
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
   color: var(--background);
 }
@@ -241,7 +341,7 @@
     #estateLeft{
       background-size: cover;
       background-position: center;
-      //padding: 150px 0px;
+      padding: 150px 0px;
     }
     #estate{
       padding-left: 5%;
@@ -252,4 +352,165 @@
     .sponsorWrap{
       padding: 0px 10px;
     }
+}
+
+.textLink {
+  color: #7675ED;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.textLink:hover {
+  color: #FFCC40;
+}
+
+.missionCtaSection {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 8rem);
+  padding: clamp(3.5rem, 7vw, 5rem) 1.5rem clamp(4rem, 8vw, 6rem);
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.missionCtaSection::before,
+.missionCtaSection::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  display: none;
+}
+
+.missionCtaSection::before {
+  display: none;
+}
+
+.missionCtaSection::after {
+  display: none;
+}
+
+.imagePlaceholderLeft,
+.imagePlaceholderRight {
+  width: min(200px, 38vw);
+  height: min(200px, 38vw);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.missionCtaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.missionCtaLink {
+  display: inline-block;
+  padding: 1.8rem clamp(1.8rem, 5vw, 3.5rem);
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #7675ED;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+
+
+.missionCtaLink:hover {
+  transform: translateY(-2px);
+  border-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(118, 117, 237, 0.35);
+}
+
+@media only screen and (max-width: 800px) {
+  .main {
+    min-height: 52vh;
+    padding: 4.5rem 1rem 1.5rem;
+  }
+
+  .heroLogo {
+    width: min(86vw, 560px);
+    margin-top: 0;
+  }
+
+  .mainAbout {
+    min-height: 42vh;
+    padding: 3.5rem 1rem 0;
+  }
+
+  .aboutText h1 {
+    font-size: clamp(2.3rem, 12vw, 3.6rem);
+  }
+
+  .descriptionSection {
+    padding: 0 1rem;
+  }
+
+  .missionCtaSection {
+    padding: 3rem 1rem 4rem;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .missionCtaSection::before {
+    height: 9rem;
+  }
+
+  .missionCtaSection::after {
+    bottom: 1.4rem;
+  }
+
+  .imagePlaceholderLeft,
+  .imagePlaceholderRight {
+    width: min(150px, 42vw);
+    height: min(150px, 42vw);
+  }
+
+  .missionCtaLink {
+    width: 100%;
+    max-width: 32rem;
+    padding: 1.4rem 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .main {
+    min-height: 48vh;
+    padding-top: 4rem;
+  }
+
+  .heroLogo {
+    width: 92vw;
+  }
+
+  .descriptionContent {
+    gap: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .missionCtaSection {
+    padding: 2.5rem 0.75rem 3.5rem;
+  }
+
+  .imagePlaceholderLeft,
+  .imagePlaceholderRight {
+    width: 42vw;
+    height: 42vw;
+    max-width: 140px;
+    max-height: 140px;
+  }
 }

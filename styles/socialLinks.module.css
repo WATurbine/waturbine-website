@@ -1,0 +1,72 @@
+.socialLinksContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  overflow: visible;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  color: #7675ed;
+  transition: all 0.3s ease;
+  overflow: visible;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.socialLink:hover {
+  color: #7675ed;
+  transform: translateY(-4px);
+}
+
+.socialLink img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 30px rgba(118, 117, 237, 0.8)) drop-shadow(0 0 60px rgba(118, 117, 237, 0.6)) drop-shadow(0 0 40px rgba(255, 204, 64, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.socialLink:hover img {
+  filter: drop-shadow(0 0 40px rgba(118, 117, 237, 1)) drop-shadow(0 0 80px rgba(118, 117, 237, 0.8)) drop-shadow(0 0 60px rgba(255, 204, 64, 0.6));
+}
+
+.socialLink svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  overflow: visible;
+  filter: drop-shadow(0 0 30px rgba(118, 117, 237, 0.8)) drop-shadow(0 0 60px rgba(118, 117, 237, 0.6)) drop-shadow(0 0 40px rgba(255, 204, 64, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.socialLink:hover svg {
+  filter: drop-shadow(0 0 40px rgba(118, 117, 237, 1)) drop-shadow(0 0 80px rgba(118, 117, 237, 0.8)) drop-shadow(0 0 60px rgba(255, 204, 64, 0.6));
+}
+
+@media (max-width: 768px) {
+  .socialLinksContainer {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .socialLink {
+    width: 45px;
+    height: 45px;
+  }
+
+  .socialLink svg {
+    width: 20px;
+    height: 20px;
+  }
+}

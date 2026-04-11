@@ -1,10 +1,22 @@
-import React,{useState} from 'react'
+'use client'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import logo from '../assets/logo.png'
 import styles from '../styles/nav.module.css'
 import ReorderIcon from '@mui/icons-material/Reorder'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
+import { config } from '@/lib/config';
+
+// Keep top-level navigation labels in one place so desktop/mobile menus stay in sync.
+const navLinks = [
+  { href: '/', label: 'HOME' },
+  { href: '/who-we-are', label: 'WHO WE ARE' },
+  { href: '/sponsors', label: 'SPONSORS' },
+  { href: '/getinvolved', label: 'GET INVOLVED' },
+  { href: '/contact', label: 'CONTACT US' },
+];
 
 function Navbar() {
   const [openLinks, setLinks] = useState(false)
@@ -16,46 +28,25 @@ function Navbar() {
     <nav className = {styles.primarywrapper} id = {openLinks ? styles.open : styles.close}>
       <div className = {styles.mobilenav} onClick={toggleNav}>
            <Link href = '/'>
-             <img className = {styles.image} src={logo.src} alt='WATurbine logo' loading="eager" />
+             <Image className = {styles.image} src={logo} alt='WATurbine logo' width={120} height={40} priority />
            </Link>
-        <Link href = '/'>
-              <p>HOME</p>
-        </Link>
-        <Link href = '/mission'>
-              <p>OUR MISSION</p>
-        </Link> 
-        <Link href = '/subteams'>                      
-              <p>SUBTEAMS</p>
-        </Link>
+        {navLinks.map((item) => (
+          <Link key={item.href} href={item.href}>
+            <p>{item.label}</p>
+          </Link>
+        ))}
         <div className = {styles.socials}>
-          <Link href = "https://www.instagram.com/uwwaturbine/" target = '_blank'><InstagramIcon/></Link>
-          <Link href = "mailto:admin@waturbine.ca" target = '_blank'><EmailIcon/></Link>
+          <Link href = {config.social.instagram} target = '_blank' rel="noopener noreferrer"><InstagramIcon/></Link>
+          <Link href = {`mailto:${config.social.email}`} target = '_blank' rel="noopener noreferrer"><EmailIcon/></Link>
         </div>  
       </div>
       <div className = {styles.desktopnav}>
-        <div className = {styles.third} id = {styles.navlinks}>
-            <Link href = '/'>
-                <p>HOME</p>
+        <div className = {styles.navButtonContainer}>
+          {navLinks.map((item) => (
+            <Link key={item.href} href={item.href}>
+              <button>{item.label}</button>
             </Link>
-            <Link href = '/mission'>
-                <p>OUR MISSION</p>
-            </Link>
-            <Link href = '/subteams'>
-                <p>SUBTEAMS</p>
-            </Link> 
-        </div>
-        <div className = {styles.third}>
-           <Link href = '/'>
-             <img className = {styles.image} src={logo.src} alt='WATurbine logo' loading="eager" />
-           </Link>
-        </div>
-        <div className = {styles.third} id = {styles.contactButton}> 
-          <Link href = 'https://discord.gg/QJhDqWywaP' target = "_blank">
-                <button>JOIN!</button>
-          </Link> 
-          <a href = '/Waturbine_Sponsorship.pdf' target = "_blank">
-                <button>SPONSORSHIP</button>
-          </a>
+          ))}
         </div>
         <div className = {styles.third} id = {styles.mobileButton} >
               <button onClick = {toggleNav}><ReorderIcon/></button>
