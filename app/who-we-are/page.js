@@ -1,20 +1,12 @@
 import TeamCard from '../../Components/TeamCard';
+import Image from 'next/image';
 import styles from '../../styles/mission.module.css';
+import { displayedTeamMembers } from '@/lib/teamMembers';
 
 export const metadata = {
   title: 'Who We Are',
   description: "Learn about WATurbine's mission to design practical, efficient small wind turbines.",
 };
-
-const teamMembers = [
-  { id: 1, name: 'Team Member 1', subteam: 'Aerodynamics', title: 'Aerodynamics Lead', image: null },
-  { id: 2, name: 'Team Member 2', subteam: 'Mechanical', title: 'Mechanical Lead', image: null },
-  { id: 3, name: 'Team Member 3', subteam: 'Controls', title: 'Controls Lead', image: null },
-  { id: 5, name: 'Team Member 5', subteam: 'Power', title: 'Power Lead', image: null },
-  { id: 4, name: 'Team Member 4', subteam: 'Structural', title: 'Structural Lead', image: null },
-];
-
-const sortedTeamMembers = [...teamMembers].sort((a, b) => a.subteam.localeCompare(b.subteam));
 
 export default function WhoWeAre() {
   return (
@@ -32,11 +24,27 @@ export default function WhoWeAre() {
 
         {/* Replace placeholders with real project images as media is finalized. */}
         <div className={styles.placeholderGrid} aria-label="Mission image placeholders">
-          <div className={styles.imagePlaceholder} role="img" aria-label="Competition photo placeholder">
-            <span>Competition Photo Placeholder</span>
+          <div className={styles.imagePlaceholder} aria-label="Competition photo">
+            <Image
+              src="/images/image (8).webp"
+              alt="WATurbine competition photo"
+              fill
+              className={styles.placeholderImage}
+              sizes="(max-width: 900px) 90vw, 44vw"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-          <div className={styles.imagePlaceholder} role="img" aria-label="Turbine detail placeholder">
-            <span>Turbine Detail Placeholder</span>
+          <div className={styles.imagePlaceholder} aria-label="Turbine detail photo">
+            <Image
+              src="/mech1.webp"
+              alt="WATurbine turbine detail"
+              fill
+              className={styles.placeholderImage}
+              sizes="(max-width: 900px) 90vw, 44vw"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
 
@@ -63,15 +71,23 @@ export default function WhoWeAre() {
             By showing that compact turbines can be efficient, quiet, and durable, we move closer to
             a future where clean energy is available in more places.
           </p>
-          <div className={styles.imagePlaceholder} role="img" aria-label="Community impact placeholder">
-            <span>Community Impact Placeholder</span>
+          <div className={styles.imagePlaceholder} aria-label="Community impact photo">
+            <Image
+              src="/images/image (4).webp"
+              alt="WATurbine community impact"
+              fill
+              className={styles.placeholderImage}
+              sizes="(max-width: 900px) 90vw, 100vw"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
 
         <div className={styles.teamSection}>
           <h2 className={styles.sectionTitle}>Our Team</h2>
           <div className={styles.teamGrid}>
-            {sortedTeamMembers.map((member) => (
+            {displayedTeamMembers.map((member) => (
               <TeamCard
                 key={member.id}
                 name={member.name}

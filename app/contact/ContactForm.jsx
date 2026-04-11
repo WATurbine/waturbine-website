@@ -16,7 +16,9 @@ export default function ContactForm() {
     setStatus('loading');
     setError('');
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+
+    const formData = new FormData(form);
     const payload = {
       // Keep payload keys in sync with app/api/contact/route.js
       name: formData.get('name')?.toString().trim() || '',
@@ -38,7 +40,7 @@ export default function ContactForm() {
       }
 
       setStatus('success');
-      event.currentTarget.reset();
+      form.reset();
     } catch (err) {
       setStatus('error');
       setError(err.message || 'Unable to send message.');

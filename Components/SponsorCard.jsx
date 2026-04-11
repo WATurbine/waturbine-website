@@ -9,6 +9,9 @@ export default function SponsorCard({ logo, name, alt }) {
         alt={alt || `${name} logo`}
         fill
         className={styles.sponsorLogo}
+        sizes="(max-width: 768px) 60vw, (max-width: 1200px) 25vw, 180px"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   );

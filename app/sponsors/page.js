@@ -13,7 +13,7 @@ export default function Sponsors() {
   // Logos should reference files in /public for predictable static asset delivery.
   const sponsorTiers = {
     platinum: [
-      { name: 'Ledcor', logo : "/Ledcor.png"},
+      { name: 'Ledcor', logo : '/sponsors/Ledcor.png' },
     ],
     gold: [
       
@@ -22,10 +22,10 @@ export default function Sponsors() {
       
     ],
     bronze: [
-      { name: 'SenezCo', logo : "/SenezCo.png"},
-      { name: 'Caitlin Stone Consulting', logo : "/CaitlinStoneConsulting.png"},
-      { name: 'Kenesto', logo : "/Kenesto.png"},
-      { name: 'Ansys', logo : "/Ansys.png"},
+      { name: 'SenezCo', logo : '/sponsors/SenezCo.png' },
+      { name: 'Caitlin Stone Consulting', logo : '/sponsors/CaitlinStoneConsulting.png' },
+      { name: 'Kenesto', logo : '/sponsors/Kenesto.png' },
+      { name: 'Ansys', logo : '/sponsors/ANSYS.png' },
     ],
   };
 
@@ -42,6 +42,14 @@ export default function Sponsors() {
         <span className={styles.sponsorsTitleText}>SPONSORS</span>
       </h1>
       <div className={styles.ctaSection}>
+        <div className={styles.ctaCopyBlock}>
+          <p className={styles.ctaIntro}>
+            WATurbine is built by students who are working to advance practical clean energy solutions while developing the technical and leadership skills needed to shape a more sustainable future.
+          </p>
+          <p className={styles.ctaIntro}>
+            Sponsoring our team directly supports hands-on education in renewable energy design, testing, and deployment. Whether through funding, tools, software, materials, or mentorship, your support helps transform classroom learning into real-world impact.
+          </p>
+        </div>
         <Link href={config.external.sponsorshipPdf} target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
           View our sponsorship package
         </Link>

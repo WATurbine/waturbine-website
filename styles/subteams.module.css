@@ -10,10 +10,7 @@
 .subMain{
     width: 100%;
     min-height: auto;
-    background: url('../assets/subteam.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: linear-gradient(180deg, rgba(20, 20, 31, 0.98), rgba(20, 20, 31, 0.92));
     display: flex;
     flex-direction: column;
     justify-content: center;

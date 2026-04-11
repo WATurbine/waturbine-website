@@ -140,8 +140,33 @@
 }
 
 .ctaSection {
-  margin-bottom: 2rem;
+  margin: 2.8rem auto 3rem;
   text-align: center;
+  max-width: 980px;
+}
+
+.ctaCopyBlock {
+  background:
+    radial-gradient(circle at top left, rgba(118, 117, 237, 0.28), transparent 60%),
+    linear-gradient(140deg, rgba(11, 16, 46, 0.82), rgba(31, 24, 69, 0.75));
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 20px;
+  padding: 1.6rem 1.5rem;
+  margin: 0 auto 2rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32), 0 0 36px rgba(118, 117, 237, 0.22);
+  backdrop-filter: blur(5px);
+}
+
+.ctaIntro {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 1.08rem;
+  line-height: 1.78;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.ctaIntro + .ctaIntro {
+  margin-top: 1rem;
 }
 
 .ctaButton {
@@ -181,5 +206,20 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     padding: 1rem;
+  }
+
+  .ctaSection {
+    margin: 2.2rem auto 2.5rem;
+  }
+
+  .ctaCopyBlock {
+    padding: 1.15rem 1rem;
+    margin: 0 auto 1.5rem;
+    border-radius: 16px;
+  }
+
+  .ctaIntro {
+    font-size: 1rem;
+    line-height: 1.65;
   }
 }

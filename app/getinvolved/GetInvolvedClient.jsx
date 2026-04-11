@@ -11,12 +11,6 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import ComputerIcon from '@mui/icons-material/Computer';
 import styles from '@/styles/getinvolved.module.css';
 
-import aboutImage from '@/assets/about.jpg';
-import missionImage from '@/assets/mission.jpg';
-import smallWindImage from '@/assets/smallwind.jpg';
-import subteamImage from '@/assets/subteam.jpg';
-import backgroundImage from '@/assets/background2.jpg';
-
 const APPLY_URL = 'https://form.typeform.com/to/Py0oZEBA';
 
 // This array is the primary content surface for the Get Involved page.
@@ -30,8 +24,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Model airfoils, run CFD studies, refine blade CAD, and validate ideas through wind tunnel testing.',
-    imageMain: smallWindImage,
-    imageSide: aboutImage,
+      imageMain: '/aero1.webp',
+      imageSide: '/aero2.webp',
   },
   {
     id: 'mechanical',
@@ -41,8 +35,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Machine high-precision components, design mechanical parts, and assemble complex systems for reliable turbine integration.',
-    imageMain: subteamImage,
-    imageSide: missionImage,
+      imageMain: '/mech1.webp',
+      imageSide: '/mech2.webp',
   },
   {
     id: 'structural',
@@ -52,8 +46,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Run FEA checks, map load paths, verify safety factors, and document structural decisions for fabrication-ready designs.',
-    imageMain: backgroundImage,
-    imageSide: aboutImage,
+      imageMain: '/struct1.webp',
+      imageSide: '/struct2.webp',
   },
   {
     id: 'power',
@@ -63,8 +57,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Design and wire circuits, work with power electronics, and validate electrical performance using lab instruments.',
-    imageMain: missionImage,
-    imageSide: smallWindImage,
+      imageMain: '/power1.webp',
+      imageSide: '/power2.webp',
   },
   {
     id: 'controls',
@@ -74,8 +68,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Program microcontrollers, implement control loops, and integrate sensors to monitor and stabilize turbine behavior.',
-    imageMain: aboutImage,
-    imageSide: subteamImage,
+      imageMain: '/cont1.webp',
+      imageSide: '/cont2.webp',
   },
 ];
 

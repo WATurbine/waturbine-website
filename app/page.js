@@ -26,6 +26,7 @@ export default function Home() {
               width={500}
               height={200}
               priority
+              sizes="(max-width: 800px) 90vw, 65vw"
             />
           </section>
           <TurbineScrollAnimation />
@@ -69,11 +70,33 @@ export default function Home() {
       <SubteamsSection />
 
       <section className={styles.missionCtaSection} aria-label="Our Mission call to action">
-        <div className={styles.imagePlaceholderLeft} role="img" aria-label="Placeholder for future image"></div>
-        <Link href="/mission" className={styles.missionCtaLink}>
+        <div className={styles.imagePlaceholderLeft}>
+          <Image
+            src="/images/image (7).webp"
+            alt="WATurbine team activity"
+            width={200}
+            height={200}
+            className={styles.missionCtaImage}
+            sizes="200px"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <Link href="/who-we-are" className={styles.missionCtaLink}>
           Interested? Learn more about Our Mission
         </Link>
-        <div className={styles.imagePlaceholderRight} role="img" aria-label="Placeholder for future image"></div>
+        <div className={styles.imagePlaceholderRight}>
+          <Image
+            src="/images/image (2).webp"
+            alt="WATurbine project detail"
+            width={200}
+            height={200}
+            className={styles.missionCtaImage}
+            sizes="200px"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </section>
     </>
   );

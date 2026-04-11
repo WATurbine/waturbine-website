@@ -59,6 +59,7 @@
 }
 
 .imagePlaceholder {
+    position: relative;
     min-height: 240px;
     display: flex;
     align-items: center;
@@ -71,14 +72,12 @@
         radial-gradient(circle at top right, rgba(118, 117, 237, 0.18), transparent 42%);
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
     text-align: center;
+    overflow: hidden;
 }
 
-.imagePlaceholder span {
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+.placeholderImage {
+    object-fit: cover;
+    object-position: center;
 }
 
 .section {
@@ -167,6 +166,25 @@
 .teamCardImage {
     object-fit: cover;
     object-position: center;
+}
+
+.teamCardPlaceholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, rgba(170, 178, 198, 0.2), rgba(55, 63, 87, 0.28));
+}
+
+.teamCardPlaceholderIcon {
+    width: min(48%, 180px);
+    height: auto;
+    fill: none;
+    stroke: rgba(198, 204, 216, 0.85);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .teamCardOverlay {

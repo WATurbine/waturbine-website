@@ -4,11 +4,6 @@ import ContactForm from './ContactForm';
 import SocialLinks from '@/Components/SocialLinks';
 import styles from '../../styles/subteams.module.css';
 import { config } from '@/lib/config';
-import aboutImage from '../../assets/about.jpg';
-import missionImage from '../../assets/mission.jpg';
-import smallWindImage from '../../assets/smallwind.jpg';
-import subteamImage from '../../assets/subteam.jpg';
-import backgroundImage from '../../assets/background2.jpg';
 
 export const metadata = {
   title: 'Contact Us',
@@ -17,11 +12,18 @@ export const metadata = {
 
 const carouselImages = [
   // This list drives the looping marquee above the contact form.
-  { src: aboutImage, alt: 'WATurbine about' },
-  { src: missionImage, alt: 'WATurbine mission' },
-  { src: smallWindImage, alt: 'Small wind turbine' },
-  { src: subteamImage, alt: 'WATurbine subteam' },
-  { src: backgroundImage, alt: 'WATurbine background' },
+  { src: '/images/image (1).webp', alt: 'WATurbine carousel image 1' },
+  { src: '/images/image (7).webp', alt: 'WATurbine carousel image 7' },
+  { src: '/images/image (3).webp', alt: 'WATurbine carousel image 3' },
+  { src: '/images/image (10).webp', alt: 'WATurbine carousel image 10' },
+  { src: '/images/image (5).webp', alt: 'WATurbine carousel image 5' },
+  { src: '/images/image (12).webp', alt: 'WATurbine carousel image 12' },
+  { src: '/images/image (2).webp', alt: 'WATurbine carousel image 2' },
+  { src: '/images/image (9).webp', alt: 'WATurbine carousel image 9' },
+  { src: '/images/image (6).webp', alt: 'WATurbine carousel image 6' },
+  { src: '/images/image (11).webp', alt: 'WATurbine carousel image 11' },
+  { src: '/images/image (4).webp', alt: 'WATurbine carousel image 4' },
+  { src: '/images/image (8).webp', alt: 'WATurbine carousel image 8' },
 ];
 
 export default function Contact() {
@@ -37,7 +39,14 @@ export default function Contact() {
             <div className={styles.carouselTrack}>
               {[...carouselImages, ...carouselImages].map((image, index) => (
                 <div className={styles.carouselItem} key={`${image.alt}-${index}`}>
-                  <Image src={image.src} alt={image.alt} fill sizes="200px" />
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="200px"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               ))}
             </div>
