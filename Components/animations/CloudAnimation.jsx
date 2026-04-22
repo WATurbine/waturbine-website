@@ -3,11 +3,13 @@ import React from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "framer-motion";
 import styles from "@/styles/Home.module.css";
 
-const CloudSVG = ({ width = 150, height = 90 }) => (
+const CloudSVG = React.memo(function CloudSVG({ width = 150, height = 90 }) {
+  return (
   <svg viewBox="0 0 100 60" width={width} height={height} fill="white">
     <path d="M 10,35 Q 5,20 20,15 Q 25,5 35,8 Q 45,0 55,10 Q 70,8 75,20 Q 85,15 90,30 Q 92,45 80,52 Q 70,58 55,55 Q 40,60 25,55 Q 10,58 5,45 Q 0,40 10,35 Z" />
   </svg>
-);
+  );
+});
 
 export default function CloudAnimation() {
   const { scrollYProgress } = useScroll();

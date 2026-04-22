@@ -66,6 +66,7 @@ export default function TurbineScrollAnimation() {
   const rotateInputEnd = triggerProgress > 0
     ? Math.max(0.01, triggerProgress * completionMultiplier)
     : completionMultiplier;
+  const rotateInputEndRef = React.useRef(rotateInputEnd);
 
     const localProgress = useTransform(scrollYProgress, [0, rotateInputEnd], [0, 1]);
     const easedProgress = useTransform(localProgress, (v) => Math.pow(v, easePower));
@@ -102,7 +103,12 @@ export default function TurbineScrollAnimation() {
 
   // Track if animation is complete and the absolute position to stick to
   const [isAnimationComplete, setIsAnimationComplete] = React.useState(false);
+  const isAnimationCompleteRef = React.useRef(false);
   const [stickyTop, setStickyTop] = React.useState(0);
+
+  React.useEffect(() => {
+    rotateInputEndRef.current = rotateInputEnd;
+  }, [rotateInputEnd]);
 
   React.useEffect(() => {
     // Calculate the sticky position once on mount/resize, not based on scroll
@@ -142,8 +148,11 @@ export default function TurbineScrollAnimation() {
   }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const nextComplete = v >= rotateInputEnd;
-    setIsAnimationComplete((prev) => (prev === nextComplete ? prev : nextComplete));
+    const nextComplete = v >= rotateInputEndRef.current;
+    if (isAnimationCompleteRef.current !== nextComplete) {
+      isAnimationCompleteRef.current = nextComplete;
+      setIsAnimationComplete(nextComplete);
+    }
   });
 
   return (
