@@ -1,12 +1,14 @@
 "use client"
 import React from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
 import TurbineBlades from "./TurbineBlades";
 import CloudAnimation from "./CloudAnimation";
 import styles from "@/styles/Home.module.css";
 
 export default function TurbineScrollAnimation() {
   const { scrollYProgress } = useScroll();
+  const mainAboutRef = React.useRef(null);
+  const aboutVisibleRef = React.useRef(false);
 
   // progress value (0..1) at which the about section reaches the top of the
   // viewport. We'll compute this on mount and on resize so we can map the
@@ -78,27 +80,24 @@ export default function TurbineScrollAnimation() {
   const rotate = useSpring(rawRotate, { stiffness: 120, damping: 20 });
 
   React.useEffect(() => {
+    mainAboutRef.current = document.querySelector("." + styles.mainAbout);
+  }, []);
+
+  useMotionValueEvent(rotate, "change", (v) => {
     const revealThreshold = 0.9 * 1080; // 90% of 1080deg
-    const unsubscribe = rotate.onChange((v) => {
-      const aboutEl = document.querySelector("." + styles.mainAbout);
-      if (!aboutEl) return;
-      if (v >= revealThreshold) {
-        if (!aboutEl.classList.contains(styles.mainAboutVisible)) {
-          aboutEl.classList.add(styles.mainAboutVisible);
-        }
-      } else {
-        if (aboutEl.classList.contains(styles.mainAboutVisible)) {
-          aboutEl.classList.remove(styles.mainAboutVisible);
-        }
-      }
-    });
-    return () => unsubscribe();
-  }, [rotate]);
+    const aboutEl = mainAboutRef.current || document.querySelector("." + styles.mainAbout);
+    if (!aboutEl) return;
+    mainAboutRef.current = aboutEl;
+    const shouldShow = v >= revealThreshold;
+    if (aboutVisibleRef.current !== shouldShow) {
+      aboutVisibleRef.current = shouldShow;
+      aboutEl.classList.toggle(styles.mainAboutVisible, shouldShow);
+    }
+  });
 
   // Position turbine to align with the center of the logo in the hero section
   // Hero section is 60vh, and logo is centered within it
   // We want the turbine at roughly 30vh from top (center of 60vh hero section)
-  const startOffset = 0;
   const topPosition = `40vh`;
 
   // Track if animation is complete and the absolute position to stick to
@@ -136,20 +135,16 @@ export default function TurbineScrollAnimation() {
     window.addEventListener("resize", computeStickyPosition);
     const t = setTimeout(computeStickyPosition, 300);
 
-    const unsubscribe = scrollYProgress.onChange((v) => {
-      if (v >= rotateInputEnd && !isAnimationComplete) {
-        setIsAnimationComplete(true);
-      } else if (v < rotateInputEnd && isAnimationComplete) {
-        setIsAnimationComplete(false);
-      }
-    });
-
     return () => {
-      unsubscribe();
       window.removeEventListener("resize", computeStickyPosition);
       clearTimeout(t);
     };
-  }, [scrollYProgress, rotateInputEnd, isAnimationComplete, startOffset]);
+  }, []);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const nextComplete = v >= rotateInputEnd;
+    setIsAnimationComplete((prev) => (prev === nextComplete ? prev : nextComplete));
+  });
 
   return (
     <>
