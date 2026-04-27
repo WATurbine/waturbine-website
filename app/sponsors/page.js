@@ -49,7 +49,7 @@ export default function Sponsors() {
             Sponsoring our team directly supports hands-on education in renewable energy design, testing, and deployment. Whether through funding, tools, software, materials, or mentorship, your support helps transform classroom learning into real-world impact.
           </p>
         </div>
-        <Link href="/Waturbine_Sponsorship.pdf" target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
+        <Link href="/WATurbine_Sponsorship.pdf" target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
           View our sponsorship package
         </Link>
       </div>
