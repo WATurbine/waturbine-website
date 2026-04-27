@@ -1,7 +1,6 @@
 import SponsorCard from '@/Components/SponsorCard';
 import styles from '@/styles/sponsors.module.css';
 import Link from 'next/link';
-import { config } from '@/lib/config';
 
 export const metadata = {
   title: 'Sponsors',
@@ -50,7 +49,7 @@ export default function Sponsors() {
             Sponsoring our team directly supports hands-on education in renewable energy design, testing, and deployment. Whether through funding, tools, software, materials, or mentorship, your support helps transform classroom learning into real-world impact.
           </p>
         </div>
-        <Link href={config.external.sponsorshipPdf} target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
+        <Link href="/Waturbine_Sponsorship.pdf" target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
           View our sponsorship package
         </Link>
       </div>
