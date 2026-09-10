@@ -12,7 +12,7 @@ export default function Sponsors() {
   // Logos should reference files in /public for predictable static asset delivery.
   const sponsorTiers = {
     platinum: [
-      { name: 'Ledcor', logo : '/sponsors/Ledcor.png' },
+      // { name: 'Ledcor', logo : '/sponsors/Ledcor.png' },
     ],
     gold: [
       
@@ -21,9 +21,9 @@ export default function Sponsors() {
       
     ],
     bronze: [
-      { name: 'SenezCo', logo : '/sponsors/SenezCo.png' },
-      { name: 'Caitlin Stone Consulting', logo : '/sponsors/CaitlinStoneConsulting.png' },
-      { name: 'Kenesto', logo : '/sponsors/Kenesto.png' },
+      // { name: 'SenezCo', logo : '/sponsors/SenezCo.png' },
+      // { name: 'Caitlin Stone Consulting', logo : '/sponsors/CaitlinStoneConsulting.png' },
+      // { name: 'Kenesto', logo : '/sponsors/Kenesto.png' },
       { name: 'Ansys', logo : '/sponsors/ANSYS.png' },
     ],
   };
