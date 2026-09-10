@@ -15,7 +15,7 @@ export default function Sponsors() {
       { name: 'Ledcor', logo : '/sponsors/Ledcor.png' },
     ],
     gold: [
-      { name: 'AirTech', logo : '/sponsors/Airtech.svg.png' },
+      { name: 'AirTech', logo : '/sponsors/Airtech.svg' },
     ],
     silver: [
       
