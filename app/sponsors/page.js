@@ -13,6 +13,8 @@ export default function Sponsors() {
   const sponsorTiers = {
     platinum: [
       { name: 'Ledcor', logo : '/sponsors/Ledcor.png' },
+      { name: 'WEEF', logo : '/sponsors/WEEF.svg' },
+      { name: 'SLEF', logo : '/sponsors/SLEF.svg' },
     ],
     gold: [
       { name: 'AirTech', logo : '/sponsors/Airtech.svg' },
