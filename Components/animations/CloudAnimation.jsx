@@ -1,7 +1,15 @@
 "use client"
 import React from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "framer-motion";
 import styles from "@/styles/Home.module.css";
+
+const CloudSVG = React.memo(function CloudSVG({ width = 150, height = 90 }) {
+  return (
+  <svg viewBox="0 0 100 60" width={width} height={height} fill="white">
+    <path d="M 10,35 Q 5,20 20,15 Q 25,5 35,8 Q 45,0 55,10 Q 70,8 75,20 Q 85,15 90,30 Q 92,45 80,52 Q 70,58 55,55 Q 40,60 25,55 Q 10,58 5,45 Q 0,40 10,35 Z" />
+  </svg>
+  );
+});
 
 export default function CloudAnimation() {
   const { scrollYProgress } = useScroll();
@@ -40,54 +48,28 @@ export default function CloudAnimation() {
   const rawY = useTransform(easedProgress, [0, 1], ["0vh", "20vh"]);
   const y = useSpring(rawY, { stiffness: 120, damping: 20 });
 
-  // Horizontal movement (left to right, off-screen to off-screen)
-  const rawX = useTransform(scrollYProgress, [0, rotateInputEnd], ["-120vw", "120vw"]);
-  const x = useSpring(rawX, { stiffness: 120, damping: 20 });
+  // Horizontal movement in numeric vw units (avoids string parsing each frame)
+  const rawXVw = useTransform(scrollYProgress, [0, rotateInputEnd], [-120, 120]);
+  const xVw = useSpring(rawXVw, { stiffness: 120, damping: 20 });
+  const x = useMotionTemplate`${xVw}vw`;
 
   // Offset horizontal movement for second cloud
-  const x2 = useTransform(x, (xVal) => {
-    if (typeof xVal === 'string') {
-      const num = parseFloat(xVal);
-      return `${num * 0.7}vw`;
-    }
-    return `${Number(xVal) * 0.7}vw`;
-  });
+  const x2Vw = useTransform(xVw, (xVal) => xVal * 0.7);
+  const x2 = useMotionTemplate`${x2Vw}vw`;
 
   // Create offset transforms for each cloud
-  const x3 = useTransform(x, (xVal) => {
-    if (typeof xVal === 'string') {
-      const num = parseFloat(xVal);
-      return `${num * 0.5}vw`;
-    }
-    return `${Number(xVal) * 0.5}vw`;
-  });
+  const x3Vw = useTransform(xVw, (xVal) => xVal * 0.5);
+  const x3 = useMotionTemplate`${x3Vw}vw`;
 
-  const x4 = useTransform(x, (xVal) => {
-    if (typeof xVal === 'string') {
-      const num = parseFloat(xVal);
-      return `${num * 0.85}vw`;
-    }
-    return `${Number(xVal) * 0.85}vw`;
-  });
+  const x4Vw = useTransform(xVw, (xVal) => xVal * 0.85);
+  const x4 = useMotionTemplate`${x4Vw}vw`;
 
-  const x5 = useTransform(x, (xVal) => {
-    if (typeof xVal === 'string') {
-      const num = parseFloat(xVal);
-      return `${num * 0.6}vw`;
-    }
-    return `${Number(xVal) * 0.6}vw`;
-  });
+  const x5Vw = useTransform(xVw, (xVal) => xVal * 0.6);
+  const x5 = useMotionTemplate`${x5Vw}vw`;
 
   const startOffset = 55;
   const topPosition = `calc(50% - ${startOffset}px)`;
 
-
-  //Define cloud SVG (I totally did not do this LOL)
-  const CloudSVG = ({ width = 150, height = 90 }) => (
-    <svg viewBox="0 0 100 60" width={width} height={height} fill="white">
-      <path d="M 10,35 Q 5,20 20,15 Q 25,5 35,8 Q 45,0 55,10 Q 70,8 75,20 Q 85,15 90,30 Q 92,45 80,52 Q 70,58 55,55 Q 40,60 25,55 Q 10,58 5,45 Q 0,40 10,35 Z" />
-    </svg>
-  );
 
   // Cloud configurations: { scale, topOffset, xMotion, opacity, width, height }
   const cloudConfigs = [
