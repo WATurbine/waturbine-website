@@ -49,7 +49,7 @@ export default function Home() {
                 the fields of renewable energy and sustainable technology. Our goal
                 is to design and build the most efficient and sustainable small wind
                 turbine possible for the <Link href="https://www.hanze.nl/en/research/centres/entrance-centre-of-expertise-energy/projects/international-small-wind-turbine-contest-iswtc" target="_blank" rel="noopener noreferrer" className={styles.textLink}>International Small Wind Turbine
-                Competition</Link>.
+                Competition</Link>. This past year, we placed 2nd in the HAWT category. Higher than any other Canadian team!
               </p>
               <p className={styles.descriptionText}>
                 As a subsidiary of the University of Waterloo&apos;s Engineers
