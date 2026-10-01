@@ -25,7 +25,7 @@ export default function Sponsors() {
     bronze: [
       { name: 'Ansys', logo : '/sponsors/ANSYS.png' },
       { name: 'Composites Canada', logo : '/sponsors/compositescanada.svg' },
-      { name: 'Notion', logo : '/sponsors/ANSYS.png' },
+      { name: 'Notion', logo : '/sponsors/notion.svg' },
       { name: 'ATO', logo : '/sponsors/ATO.svg' },
       { name: 'Texonic', logo : '/sponsors/Texonic.svg' },
       { name: 'Ecopoxy', logo : '/sponsors/ecopoxy.svg' },
