@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../public/assets/whitelogo.png';
+import logo from '../assets/whitelogo.png';
 import styles from '@/styles/Home.module.css';
 import { config } from '@/lib/config';
 import TurbineScrollAnimation from '../Components/animations/TurbineAnimation';
