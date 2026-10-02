@@ -9,7 +9,7 @@
 .aboutMain{
     width: 100%;
     min-height: auto;
-    background: url('../assets/aboutus.jpg');
+    background: url('/assets/aboutus.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
