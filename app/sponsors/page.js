@@ -15,6 +15,7 @@ export default function Sponsors() {
       { name: 'Ledcor', logo : '/sponsors/Ledcor.png' },
       { name: 'WEEF', logo : '/sponsors/WEEF.svg' },
       { name: 'SLEF', logo : '/sponsors/SLEF.svg' },
+      { name: 'WindEEE', logo : '/sponsors/WindEEE.svg' },
     ],
     gold: [
       { name: 'AirTech', logo : '/sponsors/Airtech.svg' },
