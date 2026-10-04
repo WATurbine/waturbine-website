@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../assets/logo.png'
+import logo from '../public/assets/logo.png'
 import styles from '../styles/nav.module.css'
 import ReorderIcon from '@mui/icons-material/Reorder'
 import InstagramIcon from '@mui/icons-material/Instagram';
