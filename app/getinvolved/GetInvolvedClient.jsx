@@ -24,8 +24,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Model airfoils, run CFD studies, refine blade CAD, and validate ideas through wind tunnel testing.',
-      imageMain: '/aero1.webp',
-      imageSide: '/aero2.webp',
+      imageMain: '/subteams/aero1.webp',
+      imageSide: '/subteams/aero2.webp',
   },
   {
     id: 'mechanical',
@@ -35,8 +35,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Machine high-precision components, design mechanical parts, and assemble complex systems for reliable turbine integration.',
-      imageMain: '/mech1.webp',
-      imageSide: '/mech2.webp',
+      imageMain: '/subteams/mech1.webp',
+      imageSide: '/subteams/mech2.webp',
   },
   {
     id: 'structural',
@@ -46,8 +46,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Run FEA checks, map load paths, verify safety factors, and document structural decisions for fabrication-ready designs.',
-      imageMain: '/struct1.webp',
-      imageSide: '/struct2.webp',
+      imageMain: '/subteams/struct1.webp',
+      imageSide: '/subteams/struct2.webp',
   },
   {
     id: 'power',
@@ -57,8 +57,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Design and wire circuits, work with power electronics, and validate electrical performance using lab instruments.',
-      imageMain: '/power1.webp',
-      imageSide: '/power2.webp',
+      imageMain: '/subteams/power1.webp',
+      imageSide: '/subteams/power2.webp',
   },
   {
     id: 'controls',
@@ -68,8 +68,8 @@ const teams = [
     subtitle: 'Tools and skills used',
     skillBlob:
       'Program microcontrollers, implement control loops, and integrate sensors to monitor and stabilize turbine behavior.',
-      imageMain: '/cont1.webp',
-      imageSide: '/cont2.webp',
+      imageMain: '/subteams/cont1.webp',
+      imageSide: '/subteams/cont2.webp',
   },
 ];
 
