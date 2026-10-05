@@ -37,7 +37,7 @@ export default function WhoWeAre() {
           </div>
           <div className={styles.imagePlaceholder} aria-label="Turbine detail photo">
             <Image
-              src="/mech1.webp"
+              src="/subteams/mech1.webp"
               alt="WATurbine turbine detail"
               fill
               className={styles.placeholderImage}

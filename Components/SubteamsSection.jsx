@@ -19,8 +19,8 @@ const subteams = [
     icon: AirIcon,
     description: 'Optimizing blade design for maximum energy capture',
     color: '#7675ED',
-     image1: '/aero1.webp', 
-     image2: '/aero2.webp',
+     image1: '/subteams/aero1.webp', 
+     image2: '/subteams/aero2.webp',
   },
   {
     id: 2,
@@ -28,8 +28,8 @@ const subteams = [
     icon: SettingsIcon,
     description: 'Engineering robust mechanical systems',
     color: '#FFCC40',
-     image1: '/mech1.webp', 
-     image2: '/mech2.webp',
+     image1: '/subteams/mech1.webp', 
+     image2: '/subteams/mech2.webp',
   },
   {
     id: 3,
@@ -37,8 +37,8 @@ const subteams = [
     icon: AccountBalanceIcon,
     description: 'Ensuring stability and durability',
     color: '#FF6B9D',
-     image1: '/struct1.webp', 
-     image2: '/struct2.webp',
+     image1: '/subteams/struct1.webp', 
+     image2: '/subteams/struct2.webp',
   },
   {
     id: 4,
@@ -46,8 +46,8 @@ const subteams = [
     icon: ElectricBoltIcon,
     description: 'Ensuring efficient energy conversion',
     color: '#00D9FF',
-     image1: '/power1.webp', 
-     image2: '/power2.webp',
+     image1: '/subteams/power1.webp', 
+     image2: '/subteams/power2.webp',
   },
   {
     id: 5,
@@ -55,8 +55,8 @@ const subteams = [
     icon: ComputerIcon,
     description: 'Controls sensors and monitoring',
     color: '#B4FF39',
-     image1: '/cont1.webp', 
-     image2: '/cont2.webp',
+     image1: '/subteams/cont1.webp', 
+     image2: '/subteams/cont2.webp',
   },
 ];
 
