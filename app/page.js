@@ -59,8 +59,6 @@ export default function Home() {
             </AnimatedText>
           </div>
         </section>
-        {/* Spacer to push content below the description section */}
-        <div style={{ height: '40vh' }} aria-hidden="true" />
       </div>
 
       {/* Large spacer between about section and subteams */}
