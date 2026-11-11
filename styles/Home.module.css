@@ -440,6 +440,17 @@
 }
 
 @media only screen and (max-width: 800px) {
+  :global(html):has(.homePage),
+  :global(body):has(.homePage) {
+    overflow-x: clip;
+  }
+
+  .mainAbout,
+  .missionCtaSection,
+  .missionCtaLink {
+    box-sizing: border-box;
+  }
+
   .main {
     min-height: 52vh;
     padding: 4.5rem 1rem 1.5rem;
