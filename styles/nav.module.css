@@ -99,14 +99,19 @@
     margin: 0px 10px;
 }
 @media only screen and (max-width: 800px){
+    .desktopnav{
+        box-sizing: border-box;
+        padding-right: 1rem;
+    }
     .navButtonContainer{
         display: none;
     }
     #mobileButton{
         display: flex;
+        justify-content: flex-end;
     }
     #mobileButton button{
-        margin-left: 30%;
+        margin-left: 0;
         border: none;
     }
     #mobileButton button:hover{

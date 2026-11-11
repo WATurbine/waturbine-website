@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <>
+    <div className={styles.homePage}>
       {/* Hero and About section - isolated container with fixed layout */}
       <div className={styles.heroAboutContainer}>
         <div className={styles.heroWrap}>
@@ -59,8 +59,6 @@ export default function Home() {
             </AnimatedText>
           </div>
         </section>
-        {/* Spacer to push content below the description section */}
-        <div style={{ height: '40vh' }} aria-hidden="true" />
       </div>
 
       {/* Large spacer between about section and subteams */}
@@ -98,6 +96,6 @@ export default function Home() {
           />
         </div>
       </section>
-    </>
+    </div>
   );
 }

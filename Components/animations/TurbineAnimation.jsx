@@ -123,12 +123,12 @@ export default function TurbineScrollAnimation() {
       // Turbine container is 260px, so bottom is 130px below center
       const turbineBottom = absoluteTop + 205;
       
-      // Set the description section to start at the turbine's bottom
+      // Keep the description in flow so wrapped text contributes to page height.
+      // Add only the space needed to clear the turbine's final position.
       if (descriptionSection) {
-        descriptionSection.style.position = 'absolute';
-        descriptionSection.style.top = `${turbineBottom}px`;
-        descriptionSection.style.left = '0';
-        descriptionSection.style.right = '0';
+        const currentMargin = parseFloat(getComputedStyle(descriptionSection).marginTop) || 0;
+        const naturalTop = descriptionSection.getBoundingClientRect().top + window.scrollY - currentMargin;
+        descriptionSection.style.marginTop = `${Math.max(0, turbineBottom - naturalTop)}px`;
       }
     }
 
